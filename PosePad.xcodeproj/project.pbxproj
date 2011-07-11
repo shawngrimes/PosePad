@@ -1,0 +1,738 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* PoseBookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* PoseBookAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		290595A7115BD81900686C4D /* pose.m in Sources */ = {isa = PBXBuildFile; fileRef = 290595A4115BD81900686C4D /* pose.m */; };
+		290595A8115BD81900686C4D /* poseList.m in Sources */ = {isa = PBXBuildFile; fileRef = 290595A6115BD81900686C4D /* poseList.m */; };
+		290595AC115BD82D00686C4D /* mainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 290595AB115BD82D00686C4D /* mainTableViewController.m */; };
+		290595B0115BD83A00686C4D /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 290595AE115BD83A00686C4D /* detailViewController.m */; };
+		290595B1115BD83A00686C4D /* detailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 290595AF115BD83A00686C4D /* detailViewController.xib */; };
+		290595B5115BDAC200686C4D /* ImageNotFound.png in Resources */ = {isa = PBXBuildFile; fileRef = 290595B3115BDAC200686C4D /* ImageNotFound.png */; };
+		292911BA11C698AB004BAF61 /* PoseBookDownloadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 292911B811C698AB004BAF61 /* PoseBookDownloadProgressView.m */; };
+		292911BB11C698AB004BAF61 /* PoseBookDownloadProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292911B911C698AB004BAF61 /* PoseBookDownloadProgressView.xib */; };
+		2931CEE3117CF2E300C60245 /* bookPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2931CEE1117CF2E300C60245 /* bookPickerViewController.m */; };
+		2931CEE4117CF2E300C60245 /* bookPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2931CEE2117CF2E300C60245 /* bookPickerViewController.xib */; };
+		293D88C011A84CC800157EB9 /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 293D88BF11A84CC800157EB9 /* settings-icon.png */; };
+		293D88C211A84D2800157EB9 /* info-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 293D88C111A84D2800157EB9 /* info-icon.png */; };
+		293E827811691D9E00816ABC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293E827711691D9E00816ABC /* CoreData.framework */; };
+		29442CD911B0461100CC1B97 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 29442CD711B0461100CC1B97 /* UIImage+Resize.m */; };
+		29442CFE11B0491900CC1B97 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = 29442CFA11B0491900CC1B97 /* UIImage+Alpha.m */; };
+		29442CFF11B0491900CC1B97 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 29442CFB11B0491900CC1B97 /* UIImage+RoundedCorner.m */; };
+		29662EB011A851250078A1A3 /* settingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29662EAE11A851250078A1A3 /* settingsViewController.m */; };
+		29662EB111A851250078A1A3 /* settingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29662EAF11A851250078A1A3 /* settingsViewController.xib */; };
+		29662FA311A863630078A1A3 /* infoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29662FA111A863630078A1A3 /* infoViewController.m */; };
+		29662FA411A863630078A1A3 /* infoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29662FA211A863630078A1A3 /* infoViewController.xib */; };
+		29662FB211A883820078A1A3 /* Icon-stylized.png in Resources */ = {isa = PBXBuildFile; fileRef = 29662FB111A883820078A1A3 /* Icon-stylized.png */; };
+		296ED757115E6D760083678C /* NewPose.png in Resources */ = {isa = PBXBuildFile; fileRef = 296ED756115E6D760083678C /* NewPose.png */; };
+		296F0E9D115E50BB008D9FB9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 296F0E9C115E50BB008D9FB9 /* Default.png */; };
+		296F0EA1115E50CF008D9FB9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 296F0EA0115E50CF008D9FB9 /* Icon.png */; };
+		296F0EAD115E592F008D9FB9 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 296F0EAB115E592F008D9FB9 /* Default-Portrait.png */; };
+		296F0EAE115E592F008D9FB9 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 296F0EAC115E592F008D9FB9 /* Default-Landscape.png */; };
+		2971D84711A8D027002261FB /* draw-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2971D84611A8D027002261FB /* draw-icon.png */; };
+		298235C911AAC00B0089E2CF /* graph-paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 298235C811AAC00B0089E2CF /* graph-paper.png */; };
+		2982375F11AAFC470089E2CF /* paper-background-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 2982375E11AAFC470089E2CF /* paper-background-01.png */; };
+		2986AD9A119C8B9500B5F1F1 /* posestoreCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2986AD99119C8B9500B5F1F1 /* posestoreCellView.xib */; };
+		2986ADCD119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2986ADCB119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m */; };
+		2986ADCE119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2986ADCC119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.xib */; };
+		2986ADD9119DCE5300B5F1F1 /* polaroid-stack.png in Resources */ = {isa = PBXBuildFile; fileRef = 2986ADD8119DCE5300B5F1F1 /* polaroid-stack.png */; };
+		2997E0C41180D2E000FA4B7E /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0B91180D2E000FA4B7E /* NSObject+SBJSON.m */; };
+		2997E0C51180D2E000FA4B7E /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0BB1180D2E000FA4B7E /* NSString+SBJSON.m */; };
+		2997E0C61180D2E000FA4B7E /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0BD1180D2E000FA4B7E /* SBJSON.m */; };
+		2997E0C71180D2E000FA4B7E /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0BF1180D2E000FA4B7E /* SBJsonBase.m */; };
+		2997E0C81180D2E000FA4B7E /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0C11180D2E000FA4B7E /* SBJsonParser.m */; };
+		2997E0C91180D2E000FA4B7E /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0C31180D2E000FA4B7E /* SBJsonWriter.m */; };
+		2997E1D811811E6A00FA4B7E /* getSamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E1D611811E6A00FA4B7E /* getSamplesViewController.m */; };
+		2997E1D911811E6A00FA4B7E /* getSamplesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2997E1D711811E6A00FA4B7E /* getSamplesViewController.xib */; };
+		2997E27F1181411300FA4B7E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2997E27E1181411300FA4B7E /* SystemConfiguration.framework */; };
+		2999F1B71198C46800027E3D /* polaroid.png in Resources */ = {isa = PBXBuildFile; fileRef = 2999F1B61198C46800027E3D /* polaroid.png */; };
+		2999F1E31198CFE500027E3D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2999F1E21198CFE500027E3D /* StoreKit.framework */; };
+		2999F33A1199E15B00027E3D /* posestoreMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2999F3381199E15B00027E3D /* posestoreMainViewController.m */; };
+		2999F33B1199E15B00027E3D /* posestoreMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2999F3391199E15B00027E3D /* posestoreMainViewController.xib */; };
+		29A5104411AC575B000DAE5E /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A5104311AC575B000DAE5E /* TestImage.png */; };
+		29CD2527126378580044824E /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CD2526126378580044824E /* Appirater.m */; };
+		29ECBDD0119E31560094D97F /* InAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ECBDCF119E31560094D97F /* InAppPurchaseManager.m */; };
+		29FB73C611A2E997007C3912 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29FB73C511A2E997007C3912 /* MessageUI.framework */; };
+		29FDC5791176737300463E05 /* poseThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC5771176737300463E05 /* poseThumbnailViewController.m */; };
+		29FDC57A1176737300463E05 /* poseThumbnailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FDC5781176737300463E05 /* poseThumbnailViewController.xib */; };
+		29FDC7221177661500463E05 /* posepad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC7211177661500463E05 /* posepad.xcdatamodeld */; };
+		29FDC7A81177815E00463E05 /* posepad2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC7A71177815E00463E05 /* posepad2.0.xcmappingmodel */; };
+		29FDC7CE11778B5900463E05 /* mainBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC7CD11778B5900463E05 /* mainBookViewController.m */; };
+		29FDC7D51177902200463E05 /* bookAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC7D31177902200463E05 /* bookAddViewController.m */; };
+		29FDC7D61177902200463E05 /* bookAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FDC7D41177902200463E05 /* bookAddViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* PoseBookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoseBookAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* PoseBookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoseBookAppDelegate.m; sourceTree = "<group>"; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		290595A3115BD81900686C4D /* pose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pose.h; sourceTree = "<group>"; };
+		290595A4115BD81900686C4D /* pose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pose.m; sourceTree = "<group>"; };
+		290595A5115BD81900686C4D /* poseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseList.h; sourceTree = "<group>"; };
+		290595A6115BD81900686C4D /* poseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseList.m; sourceTree = "<group>"; };
+		290595AA115BD82D00686C4D /* mainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainTableViewController.h; sourceTree = "<group>"; };
+		290595AB115BD82D00686C4D /* mainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainTableViewController.m; sourceTree = "<group>"; };
+		290595AD115BD83A00686C4D /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
+		290595AE115BD83A00686C4D /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
+		290595AF115BD83A00686C4D /* detailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = detailViewController.xib; sourceTree = "<group>"; };
+		290595B3115BDAC200686C4D /* ImageNotFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageNotFound.png; sourceTree = "<group>"; };
+		292911B711C698AB004BAF61 /* PoseBookDownloadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoseBookDownloadProgressView.h; sourceTree = "<group>"; };
+		292911B811C698AB004BAF61 /* PoseBookDownloadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoseBookDownloadProgressView.m; sourceTree = "<group>"; };
+		292911B911C698AB004BAF61 /* PoseBookDownloadProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PoseBookDownloadProgressView.xib; sourceTree = "<group>"; };
+		2931CEE0117CF2E300C60245 /* bookPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookPickerViewController.h; sourceTree = "<group>"; };
+		2931CEE1117CF2E300C60245 /* bookPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookPickerViewController.m; sourceTree = "<group>"; };
+		2931CEE2117CF2E300C60245 /* bookPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookPickerViewController.xib; sourceTree = "<group>"; };
+		293D88BF11A84CC800157EB9 /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
+		293D88C111A84D2800157EB9 /* info-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-icon.png"; sourceTree = "<group>"; };
+		293E827711691D9E00816ABC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		29442CD711B0461100CC1B97 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
+		29442CD811B0461100CC1B97 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		29442CFA11B0491900CC1B97 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
+		29442CFB11B0491900CC1B97 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
+		29442CFC11B0491900CC1B97 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
+		29442CFD11B0491900CC1B97 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
+		29534C341168114F00CE525A /* posepad1.0.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = posepad1.0.xcdatamodel; sourceTree = "<group>"; };
+		2953C7EA12625D99004AC11F /* posepad 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "posepad 2.xcdatamodel"; sourceTree = "<group>"; };
+		296038C111D2D8160068F91B /* PosePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PosePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		29662EAD11A851250078A1A3 /* settingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = settingsViewController.h; sourceTree = "<group>"; };
+		29662EAE11A851250078A1A3 /* settingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = settingsViewController.m; sourceTree = "<group>"; };
+		29662EAF11A851250078A1A3 /* settingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = settingsViewController.xib; sourceTree = "<group>"; };
+		29662FA011A863630078A1A3 /* infoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoViewController.h; sourceTree = "<group>"; };
+		29662FA111A863630078A1A3 /* infoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoViewController.m; sourceTree = "<group>"; };
+		29662FA211A863630078A1A3 /* infoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = infoViewController.xib; sourceTree = "<group>"; };
+		29662FB111A883820078A1A3 /* Icon-stylized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-stylized.png"; sourceTree = "<group>"; };
+		296ED756115E6D760083678C /* NewPose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewPose.png; sourceTree = "<group>"; };
+		296F0E9C115E50BB008D9FB9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		296F0EA0115E50CF008D9FB9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		296F0EAB115E592F008D9FB9 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		296F0EAC115E592F008D9FB9 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		2971D84611A8D027002261FB /* draw-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "draw-icon.png"; sourceTree = "<group>"; };
+		298235C811AAC00B0089E2CF /* graph-paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "graph-paper.png"; path = "Classes/graph-paper.png"; sourceTree = "<group>"; };
+		2982366611AADBB80089E2CF /* posepad3.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = posepad3.0.xcdatamodel; sourceTree = "<group>"; };
+		2982375E11AAFC470089E2CF /* paper-background-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paper-background-01.png"; sourceTree = "<group>"; };
+		2986AD99119C8B9500B5F1F1 /* posestoreCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = posestoreCellView.xib; sourceTree = "<group>"; };
+		2986ADCA119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = posestoreBookDetailsViewController.h; sourceTree = "<group>"; };
+		2986ADCB119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = posestoreBookDetailsViewController.m; sourceTree = "<group>"; };
+		2986ADCC119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = posestoreBookDetailsViewController.xib; sourceTree = "<group>"; };
+		2986ADD8119DCE5300B5F1F1 /* polaroid-stack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "polaroid-stack.png"; sourceTree = "<group>"; };
+		2997E0B71180D2E000FA4B7E /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		2997E0B81180D2E000FA4B7E /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		2997E0B91180D2E000FA4B7E /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		2997E0BA1180D2E000FA4B7E /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		2997E0BB1180D2E000FA4B7E /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		2997E0BC1180D2E000FA4B7E /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		2997E0BD1180D2E000FA4B7E /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		2997E0BE1180D2E000FA4B7E /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		2997E0BF1180D2E000FA4B7E /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		2997E0C01180D2E000FA4B7E /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		2997E0C11180D2E000FA4B7E /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		2997E0C21180D2E000FA4B7E /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		2997E0C31180D2E000FA4B7E /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		2997E1D511811E6A00FA4B7E /* getSamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getSamplesViewController.h; sourceTree = "<group>"; };
+		2997E1D611811E6A00FA4B7E /* getSamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getSamplesViewController.m; sourceTree = "<group>"; };
+		2997E1D711811E6A00FA4B7E /* getSamplesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = getSamplesViewController.xib; sourceTree = "<group>"; };
+		2997E27E1181411300FA4B7E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		2999F1B61198C46800027E3D /* polaroid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = polaroid.png; sourceTree = "<group>"; };
+		2999F1E21198CFE500027E3D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2999F3371199E15B00027E3D /* posestoreMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = posestoreMainViewController.h; sourceTree = "<group>"; };
+		2999F3381199E15B00027E3D /* posestoreMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = posestoreMainViewController.m; sourceTree = "<group>"; };
+		2999F3391199E15B00027E3D /* posestoreMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = posestoreMainViewController.xib; sourceTree = "<group>"; };
+		29A5104311AC575B000DAE5E /* TestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImage.png; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29CD2525126378570044824E /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		29CD2526126378580044824E /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		29CD264212638B900044824E /* posepad 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "posepad 3.xcdatamodel"; sourceTree = "<group>"; };
+		29ECBDCE119E31560094D97F /* InAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseManager.h; sourceTree = "<group>"; };
+		29ECBDCF119E31560094D97F /* InAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseManager.m; sourceTree = "<group>"; };
+		29F439F712721C190085143B /* posepad 4.xcdatamodel */ = {isa = PBXFileReference; comments = xmod; lastKnownFileType = wrapper.xcdatamodel; path = "posepad 4.xcdatamodel"; sourceTree = "<group>"; };
+		29F43A5E1272687D0085143B /* EquipmentClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EquipmentClass.m; sourceTree = "<group>"; };
+		29F43A5F1272687D0085143B /* poseBooks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = poseBooks.m; sourceTree = "<group>"; };
+		29F43A601272687E0085143B /* poseSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = poseSummary.m; sourceTree = "<group>"; };
+		29F43A611272687E0085143B /* EquipmentClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EquipmentClass.h; sourceTree = "<group>"; };
+		29F43A621272687E0085143B /* poseBooks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = poseBooks.h; sourceTree = "<group>"; };
+		29F43A631272687E0085143B /* poseSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = poseSummary.h; sourceTree = "<group>"; };
+		29F43A641272687F0085143B /* _EquipmentClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _EquipmentClass.m; sourceTree = "<group>"; };
+		29F43A651272687F0085143B /* _poseBooks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _poseBooks.m; sourceTree = "<group>"; };
+		29F43A661272687F0085143B /* _poseSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _poseSummary.m; sourceTree = "<group>"; };
+		29F43A671272687F0085143B /* _EquipmentClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _EquipmentClass.h; sourceTree = "<group>"; };
+		29F43A68127268800085143B /* _poseBooks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _poseBooks.h; sourceTree = "<group>"; };
+		29F43A69127268800085143B /* _poseSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _poseSummary.h; sourceTree = "<group>"; };
+		29F65CDE11DE7DB50000C2A8 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		29FB73C511A2E997007C3912 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		29FDC5761176737300463E05 /* poseThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseThumbnailViewController.h; sourceTree = "<group>"; };
+		29FDC5771176737300463E05 /* poseThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseThumbnailViewController.m; sourceTree = "<group>"; };
+		29FDC5781176737300463E05 /* poseThumbnailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = poseThumbnailViewController.xib; sourceTree = "<group>"; };
+		29FDC7231177661600463E05 /* posepad2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = posepad2.0.xcdatamodel; sourceTree = "<group>"; };
+		29FDC7A71177815E00463E05 /* posepad2.0.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = posepad2.0.xcmappingmodel; sourceTree = "<group>"; };
+		29FDC7CC11778B5900463E05 /* mainBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainBookViewController.h; sourceTree = "<group>"; };
+		29FDC7CD11778B5900463E05 /* mainBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainBookViewController.m; sourceTree = "<group>"; };
+		29FDC7D21177902200463E05 /* bookAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookAddViewController.h; sourceTree = "<group>"; };
+		29FDC7D31177902200463E05 /* bookAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookAddViewController.m; sourceTree = "<group>"; };
+		29FDC7D41177902200463E05 /* bookAddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookAddViewController.xib; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* PosePad_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PosePad_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* PosePad-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "PosePad-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				293E827811691D9E00816ABC /* CoreData.framework in Frameworks */,
+				2997E27F1181411300FA4B7E /* SystemConfiguration.framework in Frameworks */,
+				2999F1E31198CFE500027E3D /* StoreKit.framework in Frameworks */,
+				29FB73C611A2E997007C3912 /* MessageUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				29CD2525126378570044824E /* Appirater.h */,
+				29CD2526126378580044824E /* Appirater.m */,
+				292911CA11C69B56004BAF61 /* PurchaseManager */,
+				29442CD611B0460500CC1B97 /* Resize */,
+				2997E0B61180D2E000FA4B7E /* JSON */,
+				290595A9115BD81E00686C4D /* Controllers */,
+				290595A0115BD80D00686C4D /* Models */,
+				1D3623240D0F684500981E51 /* PoseBookAppDelegate.h */,
+				1D3623250D0F684500981E51 /* PoseBookAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				296038C111D2D8160068F91B /* PosePad.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		290595A0115BD80D00686C4D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				290595A3115BD81900686C4D /* pose.h */,
+				290595A4115BD81900686C4D /* pose.m */,
+				290595A5115BD81900686C4D /* poseList.h */,
+				290595A6115BD81900686C4D /* poseList.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		290595A9115BD81E00686C4D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				29662FA011A863630078A1A3 /* infoViewController.h */,
+				29662FA111A863630078A1A3 /* infoViewController.m */,
+				29662FA211A863630078A1A3 /* infoViewController.xib */,
+				29662EAD11A851250078A1A3 /* settingsViewController.h */,
+				29662EAE11A851250078A1A3 /* settingsViewController.m */,
+				29662EAF11A851250078A1A3 /* settingsViewController.xib */,
+				29CD8A0F11A6D60500807CCD /* PoseStore */,
+				290595AA115BD82D00686C4D /* mainTableViewController.h */,
+				290595AB115BD82D00686C4D /* mainTableViewController.m */,
+				290595AD115BD83A00686C4D /* detailViewController.h */,
+				290595AE115BD83A00686C4D /* detailViewController.m */,
+				290595AF115BD83A00686C4D /* detailViewController.xib */,
+				29FDC5761176737300463E05 /* poseThumbnailViewController.h */,
+				29FDC5771176737300463E05 /* poseThumbnailViewController.m */,
+				29FDC5781176737300463E05 /* poseThumbnailViewController.xib */,
+				29FDC7CC11778B5900463E05 /* mainBookViewController.h */,
+				29FDC7CD11778B5900463E05 /* mainBookViewController.m */,
+				29FDC7D21177902200463E05 /* bookAddViewController.h */,
+				29FDC7D31177902200463E05 /* bookAddViewController.m */,
+				29FDC7D41177902200463E05 /* bookAddViewController.xib */,
+				2931CEE0117CF2E300C60245 /* bookPickerViewController.h */,
+				2931CEE1117CF2E300C60245 /* bookPickerViewController.m */,
+				2931CEE2117CF2E300C60245 /* bookPickerViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		292911CA11C69B56004BAF61 /* PurchaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				292911B711C698AB004BAF61 /* PoseBookDownloadProgressView.h */,
+				292911B811C698AB004BAF61 /* PoseBookDownloadProgressView.m */,
+				292911B911C698AB004BAF61 /* PoseBookDownloadProgressView.xib */,
+				29ECBDCE119E31560094D97F /* InAppPurchaseManager.h */,
+				29ECBDCF119E31560094D97F /* InAppPurchaseManager.m */,
+			);
+			name = PurchaseManager;
+			sourceTree = "<group>";
+		};
+		29442CD611B0460500CC1B97 /* Resize */ = {
+			isa = PBXGroup;
+			children = (
+				29442CFA11B0491900CC1B97 /* UIImage+Alpha.m */,
+				29442CFB11B0491900CC1B97 /* UIImage+RoundedCorner.m */,
+				29442CFC11B0491900CC1B97 /* UIImage+RoundedCorner.h */,
+				29442CFD11B0491900CC1B97 /* UIImage+Alpha.h */,
+				29442CD711B0461100CC1B97 /* UIImage+Resize.m */,
+				29442CD811B0461100CC1B97 /* UIImage+Resize.h */,
+			);
+			name = Resize;
+			sourceTree = "<group>";
+		};
+		2997E0B61180D2E000FA4B7E /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				2997E0B71180D2E000FA4B7E /* JSON.h */,
+				2997E0B81180D2E000FA4B7E /* NSObject+SBJSON.h */,
+				2997E0B91180D2E000FA4B7E /* NSObject+SBJSON.m */,
+				2997E0BA1180D2E000FA4B7E /* NSString+SBJSON.h */,
+				2997E0BB1180D2E000FA4B7E /* NSString+SBJSON.m */,
+				2997E0BC1180D2E000FA4B7E /* SBJSON.h */,
+				2997E0BD1180D2E000FA4B7E /* SBJSON.m */,
+				2997E0BE1180D2E000FA4B7E /* SBJsonBase.h */,
+				2997E0BF1180D2E000FA4B7E /* SBJsonBase.m */,
+				2997E0C01180D2E000FA4B7E /* SBJsonParser.h */,
+				2997E0C11180D2E000FA4B7E /* SBJsonParser.m */,
+				2997E0C21180D2E000FA4B7E /* SBJsonWriter.h */,
+				2997E0C31180D2E000FA4B7E /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* PosePad_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				29F65CDE11DE7DB50000C2A8 /* Entitlements.plist */,
+				2986ADD8119DCE5300B5F1F1 /* polaroid-stack.png */,
+				290595B3115BDAC200686C4D /* ImageNotFound.png */,
+				296F0EA0115E50CF008D9FB9 /* Icon.png */,
+				296ED756115E6D760083678C /* NewPose.png */,
+				296F0E9C115E50BB008D9FB9 /* Default.png */,
+				298235C811AAC00B0089E2CF /* graph-paper.png */,
+				2982375E11AAFC470089E2CF /* paper-background-01.png */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				293D88C111A84D2800157EB9 /* info-icon.png */,
+				296F0EAB115E592F008D9FB9 /* Default-Portrait.png */,
+				2999F1B61198C46800027E3D /* polaroid.png */,
+				296F0EAC115E592F008D9FB9 /* Default-Landscape.png */,
+				29A5104311AC575B000DAE5E /* TestImage.png */,
+				293D88BF11A84CC800157EB9 /* settings-icon.png */,
+				2971D84611A8D027002261FB /* draw-icon.png */,
+				29662FB111A883820078A1A3 /* Icon-stylized.png */,
+				8D1107310486CEB800E47090 /* PosePad-Info.plist */,
+				29FDC7211177661500463E05 /* posepad.xcdatamodeld */,
+				29F43A1812721EFE0085143B /* posepad */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				293E827711691D9E00816ABC /* CoreData.framework */,
+				2997E27E1181411300FA4B7E /* SystemConfiguration.framework */,
+				2999F1E21198CFE500027E3D /* StoreKit.framework */,
+				29FB73C511A2E997007C3912 /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		29CD8A0F11A6D60500807CCD /* PoseStore */ = {
+			isa = PBXGroup;
+			children = (
+				2997E1D511811E6A00FA4B7E /* getSamplesViewController.h */,
+				2997E1D611811E6A00FA4B7E /* getSamplesViewController.m */,
+				2997E1D711811E6A00FA4B7E /* getSamplesViewController.xib */,
+				2999F3371199E15B00027E3D /* posestoreMainViewController.h */,
+				2999F3381199E15B00027E3D /* posestoreMainViewController.m */,
+				2999F3391199E15B00027E3D /* posestoreMainViewController.xib */,
+				2986ADCA119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.h */,
+				2986ADCB119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m */,
+				2986ADCC119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.xib */,
+				2986AD99119C8B9500B5F1F1 /* posestoreCellView.xib */,
+			);
+			name = PoseStore;
+			sourceTree = "<group>";
+		};
+		29F43A1812721EFE0085143B /* posepad */ = {
+			isa = PBXGroup;
+			children = (
+				29F43A5E1272687D0085143B /* EquipmentClass.m */,
+				29F43A5F1272687D0085143B /* poseBooks.m */,
+				29F43A601272687E0085143B /* poseSummary.m */,
+				29F43A611272687E0085143B /* EquipmentClass.h */,
+				29F43A621272687E0085143B /* poseBooks.h */,
+				29F43A631272687E0085143B /* poseSummary.h */,
+				29F43A641272687F0085143B /* _EquipmentClass.m */,
+				29F43A651272687F0085143B /* _poseBooks.m */,
+				29F43A661272687F0085143B /* _poseSummary.m */,
+				29F43A671272687F0085143B /* _EquipmentClass.h */,
+				29F43A68127268800085143B /* _poseBooks.h */,
+				29F43A69127268800085143B /* _poseSummary.h */,
+			);
+			path = posepad;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* PosePad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PosePad" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PosePad;
+			productName = PoseBook;
+			productReference = 296038C111D2D8160068F91B /* PosePad.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PosePad" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* PosePad */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				290595B1115BD83A00686C4D /* detailViewController.xib in Resources */,
+				290595B5115BDAC200686C4D /* ImageNotFound.png in Resources */,
+				296F0E9D115E50BB008D9FB9 /* Default.png in Resources */,
+				296F0EA1115E50CF008D9FB9 /* Icon.png in Resources */,
+				296F0EAD115E592F008D9FB9 /* Default-Portrait.png in Resources */,
+				296F0EAE115E592F008D9FB9 /* Default-Landscape.png in Resources */,
+				296ED757115E6D760083678C /* NewPose.png in Resources */,
+				29FDC57A1176737300463E05 /* poseThumbnailViewController.xib in Resources */,
+				29FDC7D61177902200463E05 /* bookAddViewController.xib in Resources */,
+				2931CEE4117CF2E300C60245 /* bookPickerViewController.xib in Resources */,
+				2997E1D911811E6A00FA4B7E /* getSamplesViewController.xib in Resources */,
+				2999F1B71198C46800027E3D /* polaroid.png in Resources */,
+				2999F33B1199E15B00027E3D /* posestoreMainViewController.xib in Resources */,
+				2986AD9A119C8B9500B5F1F1 /* posestoreCellView.xib in Resources */,
+				2986ADCE119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.xib in Resources */,
+				2986ADD9119DCE5300B5F1F1 /* polaroid-stack.png in Resources */,
+				293D88C011A84CC800157EB9 /* settings-icon.png in Resources */,
+				293D88C211A84D2800157EB9 /* info-icon.png in Resources */,
+				29662EB111A851250078A1A3 /* settingsViewController.xib in Resources */,
+				29662FA411A863630078A1A3 /* infoViewController.xib in Resources */,
+				29662FB211A883820078A1A3 /* Icon-stylized.png in Resources */,
+				2971D84711A8D027002261FB /* draw-icon.png in Resources */,
+				298235C911AAC00B0089E2CF /* graph-paper.png in Resources */,
+				2982375F11AAFC470089E2CF /* paper-background-01.png in Resources */,
+				29A5104411AC575B000DAE5E /* TestImage.png in Resources */,
+				292911BB11C698AB004BAF61 /* PoseBookDownloadProgressView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* PoseBookAppDelegate.m in Sources */,
+				290595A7115BD81900686C4D /* pose.m in Sources */,
+				290595A8115BD81900686C4D /* poseList.m in Sources */,
+				290595AC115BD82D00686C4D /* mainTableViewController.m in Sources */,
+				290595B0115BD83A00686C4D /* detailViewController.m in Sources */,
+				29FDC7221177661500463E05 /* posepad.xcdatamodeld in Sources */,
+				29FDC5791176737300463E05 /* poseThumbnailViewController.m in Sources */,
+				29FDC7A81177815E00463E05 /* posepad2.0.xcmappingmodel in Sources */,
+				29FDC7CE11778B5900463E05 /* mainBookViewController.m in Sources */,
+				29FDC7D51177902200463E05 /* bookAddViewController.m in Sources */,
+				2931CEE3117CF2E300C60245 /* bookPickerViewController.m in Sources */,
+				2997E0C41180D2E000FA4B7E /* NSObject+SBJSON.m in Sources */,
+				2997E0C51180D2E000FA4B7E /* NSString+SBJSON.m in Sources */,
+				2997E0C61180D2E000FA4B7E /* SBJSON.m in Sources */,
+				2997E0C71180D2E000FA4B7E /* SBJsonBase.m in Sources */,
+				2997E0C81180D2E000FA4B7E /* SBJsonParser.m in Sources */,
+				2997E0C91180D2E000FA4B7E /* SBJsonWriter.m in Sources */,
+				2997E1D811811E6A00FA4B7E /* getSamplesViewController.m in Sources */,
+				2999F33A1199E15B00027E3D /* posestoreMainViewController.m in Sources */,
+				2986ADCD119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m in Sources */,
+				29ECBDD0119E31560094D97F /* InAppPurchaseManager.m in Sources */,
+				29662EB011A851250078A1A3 /* settingsViewController.m in Sources */,
+				29662FA311A863630078A1A3 /* infoViewController.m in Sources */,
+				29442CD911B0461100CC1B97 /* UIImage+Resize.m in Sources */,
+				29442CFE11B0491900CC1B97 /* UIImage+Alpha.m in Sources */,
+				29442CFF11B0491900CC1B97 /* UIImage+RoundedCorner.m in Sources */,
+				292911BA11C698AB004BAF61 /* PoseBookDownloadProgressView.m in Sources */,
+				29CD2527126378580044824E /* Appirater.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv7;
+				"ARCHS[sdk=iphoneos3.2]" = armv7;
+				"ARCHS[sdk=iphonesimulator3.2]" = i386;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PosePad_Prefix.pch;
+				INFOPLIST_FILE = "PosePad-Info.plist";
+				PRODUCT_NAME = PosePad;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv7;
+				CODE_SIGN_ENTITLEMENTS = "~/Documents/src/packages/PosePad/trunk/Entitlements.plist";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Shawn Grimes";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shawn Grimes";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos3.2]" = "iPhone Distribution: Shawn Grimes";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PosePad_Prefix.pch;
+				INFOPLIST_FILE = "PosePad-Info.plist";
+				PRODUCT_NAME = PosePad;
+				"PROVISIONING_PROFILE[sdk=*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos3.2]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "";
+			};
+			name = Release;
+		};
+		29599150116140DF00CAFA0C /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = armv7;
+				"ARCHS[sdk=iphoneos*]" = armv7;
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shawn Grimes";
+				CURRENT_PROJECT_VERSION = 2.5;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALID_ARCHS = "";
+			};
+			name = Distribution;
+		};
+		29599151116140DF00CAFA0C /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv7;
+				CODE_SIGN_ENTITLEMENTS = "~/Documents/src/packages/PosePad/trunk/Entitlements.plist";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Shawn Grimes";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shawn Grimes";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos3.2]" = "iPhone Distribution: Shawn Grimes";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PosePad_Prefix.pch;
+				INFOPLIST_FILE = "PosePad-Info.plist";
+				PRODUCT_NAME = PosePad;
+				"PROVISIONING_PROFILE[sdk=*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos3.2]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "";
+			};
+			name = Distribution;
+		};
+		29F65CC611DE7CB40000C2A8 /* Release Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = armv7;
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = "Release Ad Hoc";
+		};
+		29F65CC711DE7CB40000C2A8 /* Release Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = armv7;
+				CODE_SIGN_ENTITLEMENTS = "~/Documents/src/packages/PosePad/trunk/Entitlements.plist";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos3.2]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = PosePad_Prefix.pch;
+				INFOPLIST_FILE = "PosePad-Info.plist";
+				PRODUCT_NAME = PosePad;
+				"PROVISIONING_PROFILE[sdk=*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos3.2]" = "";
+				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "";
+			};
+			name = "Release Ad Hoc";
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = armv7;
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1.0;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				PRODUCT_NAME = PosePad;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"ARCHS[sdk=iphoneos*]" = armv7;
+				"ARCHS[sdk=iphonesimulator*]" = i386;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shawn Grimes (APD27SLF5U)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73BA905D-86C0-4158-9A3D-EB1FD7755DB8";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "PosePad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+				29F65CC711DE7CB40000C2A8 /* Release Ad Hoc */,
+				29599151116140DF00CAFA0C /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PosePad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+				29F65CC611DE7CB40000C2A8 /* Release Ad Hoc */,
+				29599150116140DF00CAFA0C /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		29FDC7211177661500463E05 /* posepad.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				29534C341168114F00CE525A /* posepad1.0.xcdatamodel */,
+				29FDC7231177661600463E05 /* posepad2.0.xcdatamodel */,
+				29FDC7A71177815E00463E05 /* posepad2.0.xcmappingmodel */,
+				2982366611AADBB80089E2CF /* posepad3.0.xcdatamodel */,
+				2953C7EA12625D99004AC11F /* posepad 2.xcdatamodel */,
+				29CD264212638B900044824E /* posepad 3.xcdatamodel */,
+				29F439F712721C190085143B /* posepad 4.xcdatamodel */,
+			);
+			comments = xmod;
+			currentVersion = 29F439F712721C190085143B /* posepad 4.xcdatamodel */;
+			path = posepad.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
