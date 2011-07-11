@@ -60,6 +60,12 @@
 		2999F33A1199E15B00027E3D /* posestoreMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2999F3381199E15B00027E3D /* posestoreMainViewController.m */; };
 		2999F33B1199E15B00027E3D /* posestoreMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2999F3391199E15B00027E3D /* posestoreMainViewController.xib */; };
 		29A5104411AC575B000DAE5E /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A5104311AC575B000DAE5E /* TestImage.png */; };
+		29B1C19613CB5440007FA961 /* _EquipmentClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C18B13CB5440007FA961 /* _EquipmentClass.m */; };
+		29B1C19713CB5440007FA961 /* _poseBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C18D13CB5440007FA961 /* _poseBooks.m */; };
+		29B1C19813CB5440007FA961 /* _poseSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C18F13CB5440007FA961 /* _poseSummary.m */; };
+		29B1C19913CB5440007FA961 /* EquipmentClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C19113CB5440007FA961 /* EquipmentClass.m */; };
+		29B1C19A13CB5440007FA961 /* poseBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C19313CB5440007FA961 /* poseBooks.m */; };
+		29B1C19B13CB5440007FA961 /* poseSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C19513CB5440007FA961 /* poseSummary.m */; };
 		29CD2527126378580044824E /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CD2526126378580044824E /* Appirater.m */; };
 		29ECBDD0119E31560094D97F /* InAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ECBDCF119E31560094D97F /* InAppPurchaseManager.m */; };
 		29FB73C611A2E997007C3912 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29FB73C511A2E997007C3912 /* MessageUI.framework */; };
@@ -151,6 +157,18 @@
 		2999F3381199E15B00027E3D /* posestoreMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = posestoreMainViewController.m; sourceTree = "<group>"; };
 		2999F3391199E15B00027E3D /* posestoreMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = posestoreMainViewController.xib; sourceTree = "<group>"; };
 		29A5104311AC575B000DAE5E /* TestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImage.png; sourceTree = "<group>"; };
+		29B1C18A13CB5440007FA961 /* _EquipmentClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EquipmentClass.h; sourceTree = "<group>"; };
+		29B1C18B13CB5440007FA961 /* _EquipmentClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EquipmentClass.m; sourceTree = "<group>"; };
+		29B1C18C13CB5440007FA961 /* _poseBooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _poseBooks.h; sourceTree = "<group>"; };
+		29B1C18D13CB5440007FA961 /* _poseBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _poseBooks.m; sourceTree = "<group>"; };
+		29B1C18E13CB5440007FA961 /* _poseSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _poseSummary.h; sourceTree = "<group>"; };
+		29B1C18F13CB5440007FA961 /* _poseSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _poseSummary.m; sourceTree = "<group>"; };
+		29B1C19013CB5440007FA961 /* EquipmentClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentClass.h; sourceTree = "<group>"; };
+		29B1C19113CB5440007FA961 /* EquipmentClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentClass.m; sourceTree = "<group>"; };
+		29B1C19213CB5440007FA961 /* poseBooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseBooks.h; sourceTree = "<group>"; };
+		29B1C19313CB5440007FA961 /* poseBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseBooks.m; sourceTree = "<group>"; };
+		29B1C19413CB5440007FA961 /* poseSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseSummary.h; sourceTree = "<group>"; };
+		29B1C19513CB5440007FA961 /* poseSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseSummary.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29CD2525126378570044824E /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		29CD2526126378580044824E /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
@@ -158,18 +176,6 @@
 		29ECBDCE119E31560094D97F /* InAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseManager.h; sourceTree = "<group>"; };
 		29ECBDCF119E31560094D97F /* InAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseManager.m; sourceTree = "<group>"; };
 		29F439F712721C190085143B /* posepad 4.xcdatamodel */ = {isa = PBXFileReference; comments = xmod; lastKnownFileType = wrapper.xcdatamodel; path = "posepad 4.xcdatamodel"; sourceTree = "<group>"; };
-		29F43A5E1272687D0085143B /* EquipmentClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EquipmentClass.m; sourceTree = "<group>"; };
-		29F43A5F1272687D0085143B /* poseBooks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = poseBooks.m; sourceTree = "<group>"; };
-		29F43A601272687E0085143B /* poseSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = poseSummary.m; sourceTree = "<group>"; };
-		29F43A611272687E0085143B /* EquipmentClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EquipmentClass.h; sourceTree = "<group>"; };
-		29F43A621272687E0085143B /* poseBooks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = poseBooks.h; sourceTree = "<group>"; };
-		29F43A631272687E0085143B /* poseSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = poseSummary.h; sourceTree = "<group>"; };
-		29F43A641272687F0085143B /* _EquipmentClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _EquipmentClass.m; sourceTree = "<group>"; };
-		29F43A651272687F0085143B /* _poseBooks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _poseBooks.m; sourceTree = "<group>"; };
-		29F43A661272687F0085143B /* _poseSummary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _poseSummary.m; sourceTree = "<group>"; };
-		29F43A671272687F0085143B /* _EquipmentClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _EquipmentClass.h; sourceTree = "<group>"; };
-		29F43A68127268800085143B /* _poseBooks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _poseBooks.h; sourceTree = "<group>"; };
-		29F43A69127268800085143B /* _poseSummary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _poseSummary.h; sourceTree = "<group>"; };
 		29F65CDE11DE7DB50000C2A8 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		29FB73C511A2E997007C3912 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		29FDC5761176737300463E05 /* poseThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseThumbnailViewController.h; sourceTree = "<group>"; };
@@ -231,6 +237,7 @@
 		290595A0115BD80D00686C4D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				29B1C18913CB5440007FA961 /* posepad */,
 				290595A3115BD81900686C4D /* pose.h */,
 				290595A4115BD81900686C4D /* pose.m */,
 				290595A5115BD81900686C4D /* poseList.h */,
@@ -314,6 +321,25 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		29B1C18913CB5440007FA961 /* posepad */ = {
+			isa = PBXGroup;
+			children = (
+				29B1C18A13CB5440007FA961 /* _EquipmentClass.h */,
+				29B1C18B13CB5440007FA961 /* _EquipmentClass.m */,
+				29B1C18C13CB5440007FA961 /* _poseBooks.h */,
+				29B1C18D13CB5440007FA961 /* _poseBooks.m */,
+				29B1C18E13CB5440007FA961 /* _poseSummary.h */,
+				29B1C18F13CB5440007FA961 /* _poseSummary.m */,
+				29B1C19013CB5440007FA961 /* EquipmentClass.h */,
+				29B1C19113CB5440007FA961 /* EquipmentClass.m */,
+				29B1C19213CB5440007FA961 /* poseBooks.h */,
+				29B1C19313CB5440007FA961 /* poseBooks.m */,
+				29B1C19413CB5440007FA961 /* poseSummary.h */,
+				29B1C19513CB5440007FA961 /* poseSummary.m */,
+			);
+			path = posepad;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,7 +383,6 @@
 				29662FB111A883820078A1A3 /* Icon-stylized.png */,
 				8D1107310486CEB800E47090 /* PosePad-Info.plist */,
 				29FDC7211177661500463E05 /* posepad.xcdatamodeld */,
-				29F43A1812721EFE0085143B /* posepad */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -391,25 +416,6 @@
 				2986AD99119C8B9500B5F1F1 /* posestoreCellView.xib */,
 			);
 			name = PoseStore;
-			sourceTree = "<group>";
-		};
-		29F43A1812721EFE0085143B /* posepad */ = {
-			isa = PBXGroup;
-			children = (
-				29F43A5E1272687D0085143B /* EquipmentClass.m */,
-				29F43A5F1272687D0085143B /* poseBooks.m */,
-				29F43A601272687E0085143B /* poseSummary.m */,
-				29F43A611272687E0085143B /* EquipmentClass.h */,
-				29F43A621272687E0085143B /* poseBooks.h */,
-				29F43A631272687E0085143B /* poseSummary.h */,
-				29F43A641272687F0085143B /* _EquipmentClass.m */,
-				29F43A651272687F0085143B /* _poseBooks.m */,
-				29F43A661272687F0085143B /* _poseSummary.m */,
-				29F43A671272687F0085143B /* _EquipmentClass.h */,
-				29F43A68127268800085143B /* _poseBooks.h */,
-				29F43A69127268800085143B /* _poseSummary.h */,
-			);
-			path = posepad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,6 +533,12 @@
 				29442CFF11B0491900CC1B97 /* UIImage+RoundedCorner.m in Sources */,
 				292911BA11C698AB004BAF61 /* PoseBookDownloadProgressView.m in Sources */,
 				29CD2527126378580044824E /* Appirater.m in Sources */,
+				29B1C19613CB5440007FA961 /* _EquipmentClass.m in Sources */,
+				29B1C19713CB5440007FA961 /* _poseBooks.m in Sources */,
+				29B1C19813CB5440007FA961 /* _poseSummary.m in Sources */,
+				29B1C19913CB5440007FA961 /* EquipmentClass.m in Sources */,
+				29B1C19A13CB5440007FA961 /* poseBooks.m in Sources */,
+				29B1C19B13CB5440007FA961 /* poseSummary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,8 +550,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
-				"ARCHS[sdk=iphoneos3.2]" = armv7;
-				"ARCHS[sdk=iphonesimulator3.2]" = i386;
+				"ARCHS[sdk=iphoneos*]" = armv7;
+				"ARCHS[sdk=iphonesimulator*]" = i386;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -583,10 +595,11 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALID_ARCHS = "";
 			};
@@ -623,10 +636,11 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = "Release Ad Hoc";
@@ -661,10 +675,11 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
 				PRODUCT_NAME = PosePad;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -679,10 +694,11 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73BA905D-86C0-4158-9A3D-EB1FD7755DB8";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
