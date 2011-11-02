@@ -6,7 +6,8 @@
 //
 
 #import "getSamplesViewController.h"
-#import "JSON.h"
+//#import "JSON.h"
+#import "SBJson.h"
 #import "poseBooks.h"
 #import "poseSummary.h"
 #import <SystemConfiguration/SCNetworkReachability.h>
@@ -21,7 +22,7 @@
 @synthesize returnButton;
 @synthesize managedObjectContext;
 @synthesize responseData;
-@synthesize newBookfromJSON;
+@synthesize bookfromJSON;
 @synthesize progressView;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -51,7 +52,7 @@
 	self.title =@"Fetch Poses";
 	[self.activityIndicator startAnimating];
 	[self.view bringSubviewToFront:self.activityIndicator];
-	responseData = [[NSMutableData data] retain];
+	responseData = [NSMutableData data];
 	//[self performSelector:@selector(getSamplePoses) withObject:nil afterDelay:5];
 	
 
@@ -68,7 +69,6 @@
 	NSURLCredential *cred = [[NSURLCredential alloc] initWithUser:@"afjdkljfasdjklzcnmfuioouirqw" password:@"_pMy/+YcCHtG%ph" persistence:NSURLCredentialPersistencePermanent];
 	[[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
 	NSLog(@"Received Challenge");
-	[cred release];
 }
 
 
@@ -95,102 +95,100 @@
 }
 
 -(void) startDownload:(NSData *)poseData{
-	NSAutoreleasePool *pool=[[NSAutoreleasePool alloc] init];
+	@autoreleasepool {
 	
 	
 	
-	NSString *jsonString = [[NSString alloc] initWithData:poseData encoding:NSUTF8StringEncoding];
-	NSDictionary *results = [jsonString JSONValue];
-	NSLog(@"Results: %@", results);
-	int bookAddCount=0;
-	NSArray *books = [[results objectForKey:@"books"] objectForKey:@"book"];
-	for (NSDictionary *book in books){
-		NSLog(@"getSampleVC:(connection): Book Name: %@", [book objectForKey:@"name"]);
-		if(![self checkBookName:[book objectForKey:@"name"]]){
-			NSLog(@"getSampleVC:(connection):Creating Book");
-			bookAddCount++;
-			poseBooks *newBook = (poseBooks	*)[NSEntityDescription insertNewObjectForEntityForName:@"poseBooks" inManagedObjectContext:managedObjectContext];
-			newBook.name =[book objectForKey:@"name"];
-			
-			NSError *error;
-			if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
+		NSString *jsonString = [[NSString alloc] initWithData:poseData encoding:NSUTF8StringEncoding];
+        NSLog(@"jsonString: %@", jsonString);
+		NSDictionary *results = (NSDictionary *)[jsonString JSONValue];
+		NSLog(@"Results: %@", results);
+		int bookAddCount=0;
+		NSArray *books = [[results objectForKey:@"books"] objectForKey:@"book"];
+		for (NSDictionary *book in books){
+			NSLog(@"getSampleVC:(connection): Book Name: %@", [book objectForKey:@"name"]);
+			if(![self checkBookName:[book objectForKey:@"name"]]){
+				NSLog(@"getSampleVC:(connection):Creating Book");
+				bookAddCount++;
+				poseBooks *newBook = (poseBooks	*)[NSEntityDescription insertNewObjectForEntityForName:@"poseBooks" inManagedObjectContext:managedObjectContext];
+				newBook.name =[book objectForKey:@"name"];
+				
+				NSError *error;
+				if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
+			}
+			//		NSLog(@"Book: %@", book);
 		}
-		//		NSLog(@"Book: %@", book);
-	}
-	
-	//self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:[NSString stringWithFormat:@"\n Added %i new books of %i available books",bookAddCount,[books count]]];
-	
-	int poseAddCount=0;
-	NSArray *sampleposes = [[results objectForKey:@"poses"] objectForKey:@"pose"];
-	int newPoseCount=[sampleposes count];
-	NSLog(@"Adding %i new poses", newPoseCount);
-	
-	for (NSDictionary *pose in sampleposes){
-		NSString *poseTitle = [pose objectForKey:@"title"];
-		NSString *poseBook = [pose objectForKey:@"bookOwner"];
-		NSLog(@"getSampleVC:(connection): Pose Name: %@ (%@)", poseTitle, poseBook);
-		if(![self checkPoseExists:poseTitle]){
-			//Create Pose
-			NSLog(@"getSampleVC:(connection):create pose");
-			poseAddCount++;
-			
-			//Download image file
-			NSURL *imageURL=[NSURL URLWithString:[pose objectForKey:@"imagePath"]];
-			NSLog(@"getSampleVC:(connection):imageURL: %@", imageURL);
-			NSData *imageData=[NSData dataWithContentsOfURL:imageURL];
-			UIImage *tempImage = [[UIImage alloc] initWithData:imageData];
-			NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-			NSString *documentsDirectory = [paths objectAtIndex:0];
-			if (!documentsDirectory) {
-				NSLog(@"Documents directory not found!");
+		
+		//self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:[NSString stringWithFormat:@"\n Added %i new books of %i available books",bookAddCount,[books count]]];
+		
+		int poseAddCount=0;
+		NSArray *sampleposes = [[results objectForKey:@"poses"] objectForKey:@"pose"];
+		int newPoseCount=[sampleposes count];
+		NSLog(@"Adding %i new poses", newPoseCount);
+		
+		for (NSDictionary *pose in sampleposes){
+			NSString *poseTitle = [pose objectForKey:@"title"];
+			NSString *poseBook = [pose objectForKey:@"bookOwner"];
+			NSLog(@"getSampleVC:(connection): Pose Name: %@ (%@)", poseTitle, poseBook);
+			if(![self checkPoseExists:poseTitle]){
+				//Create Pose
+				NSLog(@"getSampleVC:(connection):create pose");
+				poseAddCount++;
+				
+				//Download image file
+				NSURL *imageURL=[NSURL URLWithString:[pose objectForKey:@"imagePath"]];
+				NSLog(@"getSampleVC:(connection):imageURL: %@", imageURL);
+				NSData *imageData=[NSData dataWithContentsOfURL:imageURL];
+				UIImage *tempImage = [[UIImage alloc] initWithData:imageData];
+				NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+				NSString *documentsDirectory = [paths objectAtIndex:0];
+				if (!documentsDirectory) {
+					NSLog(@"Documents directory not found!");
+				}
+				NSString *imgPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.jpg", poseTitle]];
+				if(![[NSFileManager defaultManager] fileExistsAtPath:imgPath]) {
+					NSData *data =  UIImageJPEGRepresentation(tempImage,.7);
+					[data writeToFile:imgPath atomically:YES];
+				}
+				CGSize iconSize;
+				iconSize.width=200;
+				iconSize.height=200;
+				
+				UIGraphicsBeginImageContext(iconSize); 
+				[tempImage drawInRect:CGRectMake(0, 0, iconSize.width, iconSize.height)]; 
+				UIImage *iconImg = UIGraphicsGetImageFromCurrentImageContext (); 
+				UIGraphicsEndImageContext();
+				
+				poseSummary *newPose = (poseSummary *)[NSEntityDescription insertNewObjectForEntityForName:@"poseSummary" inManagedObjectContext:managedObjectContext];
+				newPose.title =poseTitle;
+				NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+				newPose.sortIndex = [formatter numberFromString:[pose objectForKey:@"sortIndex"]];
+				newPose.thumbnail = UIImageJPEGRepresentation(iconImg,.7);
+				newPose.imagePath = imgPath;
+				newPose.notes = [pose objectForKey:@"notes"];
+				
+				[self getBookObject:poseBook];
+				
+				NSLog(@"getSampleVC:(connection):Adding pose to book: %@", self.bookfromJSON.name);
+				
+				if(self.bookfromJSON) {
+					[newPose addBooks:[NSSet setWithObject:self.bookfromJSON]];
+				}
+				
+				NSError *error;
+				if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
+				
+				
+				
+				[self performSelectorOnMainThread:@selector(setProgress:) withObject:[NSNumber numberWithFloat:(float)poseAddCount/newPoseCount] waitUntilDone:YES];
+				
+				
+				//[imageData release];
+				
 			}
-			NSString *imgPath = [documentsDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"/%@.jpg", poseTitle]];
-			if(![[NSFileManager defaultManager] fileExistsAtPath:imgPath]) {
-				NSData *data =  UIImageJPEGRepresentation(tempImage,.7);
-				[data writeToFile:imgPath atomically:YES];
-			}
-			CGSize iconSize;
-			iconSize.width=200;
-			iconSize.height=200;
-			
-			UIGraphicsBeginImageContext(iconSize); 
-			[tempImage drawInRect:CGRectMake(0, 0, iconSize.width, iconSize.height)]; 
-			UIImage *iconImg = UIGraphicsGetImageFromCurrentImageContext (); 
-			UIGraphicsEndImageContext();
-			
-			poseSummary *newPose = (poseSummary *)[NSEntityDescription insertNewObjectForEntityForName:@"poseSummary" inManagedObjectContext:managedObjectContext];
-			newPose.title =poseTitle;
-			NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-			newPose.sortIndex = [formatter numberFromString:[pose objectForKey:@"sortIndex"]];
-			[formatter release];
-			newPose.thumbnail = UIImageJPEGRepresentation(iconImg,.7);
-			newPose.imagePath = imgPath;
-			newPose.notes = [pose objectForKey:@"notes"];
-			
-			[self getBookObject:poseBook];
-			
-			NSLog(@"getSampleVC:(connection):Adding pose to book: %@", self.newBookfromJSON.name);
-			
-			if(self.newBookfromJSON) {
-				[newPose addBooks:[NSSet setWithObject:self.newBookfromJSON]];
-			}
-			
-			NSError *error;
-			if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
-			
-			
-			[tempImage release];
-			
-			[self performSelectorOnMainThread:@selector(setProgress:) withObject:[NSNumber numberWithFloat:(float)poseAddCount/newPoseCount] waitUntilDone:YES];
-			
-			
-			//[imageData release];
-			
 		}
+		[self performSelectorOnMainThread:@selector(finishedDownload) withObject:nil waitUntilDone:YES];
 	}
-	[self performSelectorOnMainThread:@selector(finishedDownload) withObject:nil waitUntilDone:YES];
-	[jsonString release];
-	[pool drain];
 }	
 
 -(void) finishedDownload{
@@ -268,24 +266,22 @@
 			newPose.title =poseTitle;
 			NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 			newPose.sortIndex = [formatter numberFromString:[pose objectForKey:@"sortIndex"]];
-			[formatter release];
 			newPose.thumbnail = UIImageJPEGRepresentation(iconImg,.7);
 			newPose.imagePath = imgPath;
 			newPose.notes = [pose objectForKey:@"notes"];
 			
 			[self getBookObject:poseBook];
 			
-			NSLog(@"getSampleVC:(connection):Adding pose to book: %@", self.newBookfromJSON.name);
+			NSLog(@"getSampleVC:(connection):Adding pose to book: %@", self.bookfromJSON.name);
 			
-			if(self.newBookfromJSON) {
-				[newPose addBooks:[NSSet setWithObject:self.newBookfromJSON]];
+			if(self.bookfromJSON) {
+				[newPose addBooks:[NSSet setWithObject:self.bookfromJSON]];
 			}
 			
 			NSError *error;
 			if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
 			
 			
-			[tempImage release];
 			
 			[self performSelectorOnMainThread:@selector(setProgress:) withObject:[NSNumber numberWithFloat:(float)poseAddCount/newPoseCount] waitUntilDone:YES];
 			
@@ -307,7 +303,7 @@
 
 }
 
-- (BOOL) connectedToNetwork
+- (BOOL) connectedToNetwork //Copy this to check if connected to network
 {
     // Create zero addy
     struct sockaddr_in zeroAddress;
@@ -360,8 +356,6 @@
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[checkBookNamerequest setSortDescriptors:sortDescriptors];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	NSFetchedResultsController *bookCheckFRC = [[NSFetchedResultsController alloc] initWithFetchRequest:checkBookNamerequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 	
@@ -370,13 +364,9 @@
 	NSLog(@"getSampleVC:(checkBookName)Found %i books", [[bookCheckFRC fetchedObjects] count]);
 	if([[bookCheckFRC fetchedObjects] count] > 0){
 		poseBooks *chosenBook=[[bookCheckFRC fetchedObjects] objectAtIndex:0];
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
-		self.newBookfromJSON=chosenBook;
+		self.bookfromJSON=chosenBook;
 	}else{
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
-		self.newBookfromJSON=nil;
+		self.bookfromJSON=nil;
 	}
 }
 
@@ -394,8 +384,6 @@
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[checkBookNamerequest setSortDescriptors:sortDescriptors];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	NSFetchedResultsController *bookCheckFRC = [[NSFetchedResultsController alloc] initWithFetchRequest:checkBookNamerequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 	
@@ -403,12 +391,8 @@
 	if (![bookCheckFRC performFetch:&error]) NSLog(@"Error Fetching: %@", [error localizedDescription]);	
 	NSLog(@"getSampleVC:(checkBookName)Found %i books", [[bookCheckFRC fetchedObjects] count]);
 	if([[bookCheckFRC fetchedObjects] count] > 0){
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
 		return YES;
 	}else{
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
 		return NO;
 	}
 	
@@ -426,8 +410,6 @@
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortIndex" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[checkBookNamerequest setSortDescriptors:sortDescriptors];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	NSFetchedResultsController *bookCheckFRC = [[NSFetchedResultsController alloc] initWithFetchRequest:checkBookNamerequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 	
@@ -435,12 +417,8 @@
 	if (![bookCheckFRC performFetch:&error]) NSLog(@"Error Fetching: %@", [error localizedDescription]);	
 	NSLog(@"getSampleVC:(checkBookName)Found %i books", [[bookCheckFRC fetchedObjects] count]);
 	if([[bookCheckFRC fetchedObjects] count] > 0){
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
 		return YES;
 	}else{
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
 		return NO;
 	}
 }

@@ -30,18 +30,12 @@
 		for(NSDictionary *d in savedData){ 
 			pose *savedPose = [[pose alloc] initWithDictionary:d]; 
 			[self.poses addObject:savedPose];
-			[savedPose release];
 		}
-		[savedData release];
 		
 	}
 	return self;
 }
 
--(void) dealloc {
-	[poses release];
-	[super dealloc];
-}
 
 -(void) saveToFileSystem{
 	NSArray *paths = NSSearchPathForDirectoriesInDomains (NSDocumentDirectory, NSUserDomainMask, YES);
@@ -53,7 +47,6 @@
 		[savedData addObject:[savedPose objectValues]];
 	
 	[savedData writeToFile:saveFileName atomically:NO]; 
-	[savedData release];
 
 }
 

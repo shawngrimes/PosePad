@@ -16,7 +16,7 @@
 
 
 @interface bookPickerViewController : UIViewController <NSFetchedResultsControllerDelegate,UIPickerViewDelegate> {
-	id<bookPickerViewControllerDelegate> delegate;
+	id<bookPickerViewControllerDelegate> __unsafe_unretained delegate;
 	
 	UILabel *selectBookLabel;
 	UIButton *savePoseButton;

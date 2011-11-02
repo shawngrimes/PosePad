@@ -66,17 +66,9 @@
 	[md setObject:self.poseImageName forKey:@"poseImageName"];
 	[md setObject:self.poseImageData forKey:@"poseImageData"];
 
-	[md autorelease];
 	
 	return md;
 	
 }
 
--(void) dealloc {
-	[poseTitle release];
-	[poseImageName release];
-	[poseNotes release];
-	[poseImageData release];
-	[super dealloc];
-}
 @end

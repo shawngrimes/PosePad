@@ -9,13 +9,13 @@
 #import <CoreData/CoreData.h>
 #import <UIKit/UIKit.h>
 #import <MessageUI/MessageUI.h>
-#import "mainBookViewController.h"
 #import "poseBooks.h"
 #import "settingsViewController.h"
 #import "getSamplesViewController.h"
 #import "EquipmentClass.h"
+#import "poseEditViewController.h"
 
-@interface poseThumbnailViewController : UIViewController <UITableViewDelegate,UITextFieldDelegate,settingsViewControllerDelegate, NSFetchedResultsControllerDelegate, UIScrollViewDelegate, UIPopoverControllerDelegate, mainBookViewControllerDelegate,UIAlertViewDelegate>{
+@interface poseThumbnailViewController : UIViewController <UITableViewDelegate,UITextFieldDelegate,settingsViewControllerDelegate, NSFetchedResultsControllerDelegate, UIScrollViewDelegate, UIPopoverControllerDelegate, UIAlertViewDelegate, UIActionSheetDelegate, poseEditViewControllerDelegate>{
 	
 	UIScrollView *thumbnailScrollView;
 	NSManagedObjectContext *managedObjectContext;
@@ -41,6 +41,7 @@
 	NSString *lastBookName;
 	
 	NSMutableArray *poses;
+    IBOutlet UILabel *suggestionLabel;
 	
 	IBOutlet UIView *notesView;
 	IBOutlet UIBarButtonItem *editEquipmentList;
@@ -54,10 +55,12 @@
 	UIWindow *extWindow;
 	
 	poseBooks *selectedBook;
+    BOOL menuIsVisible;
 //	poseBooks *newBookfromJSON;
-	
+	int selectedPoseIndex;
 
 }
+@property (nonatomic, retain) UIActionSheet *menu;
 @property (nonatomic, retain) 	IBOutlet UIView *equipmentListUIView;
 @property (nonatomic, retain) IBOutlet UIView *allEquipmentUIView;
 @property (nonatomic, retain) IBOutlet UIView *notesView;
@@ -86,6 +89,9 @@
 @property (nonatomic,retain) 	NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) 	NSManagedObjectContext *managedObjectContext;
 
+@property (nonatomic, retain) NSMutableArray *invisibleButtons;
+@property (nonatomic, retain) NSMutableArray *checkButtons;
+
 -(void) fetchResults;
 -(IBAction) editBook:(id) sender;
 //-(IBAction) getSamplePoses:(id) sender;
@@ -97,7 +103,7 @@
 -(void) generateThumbnails;
 -(void) clearThumbnails;
 -(void) createView;
--(void) showBooks:(id) sender;
+//-(void) showBooks:(id) sender;
 -(void)externalDisplayEnabled:(UIWindow *) extWindowSetting;
 //-(BOOL) checkPoseExists:(NSString *) possiblePoseName;
 //-(BOOL) checkBookName:(NSString *) possibleBookName;

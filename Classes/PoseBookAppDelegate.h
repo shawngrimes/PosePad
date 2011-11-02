@@ -33,7 +33,7 @@
 
 //- (void) initCoreData;
 - (void) convertArraytoDatabase;
--(void) findOrphans;
+//-(void) findOrphans;
 -(void) renameOldVersions;
 
 

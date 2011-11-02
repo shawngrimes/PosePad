@@ -8,7 +8,6 @@
 
 #import "bookAddViewController.h"
 #import "poseBooks.h"
-#import "mainBookViewController.h"
 
 
 
@@ -21,7 +20,7 @@
 @synthesize bookNameLabel;
 
 @synthesize delegate;
-
+@synthesize isAdd, book;
 
 
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -30,43 +29,74 @@
         // Custom initialization
 
     }
+    self.isAdd = YES;
+    return self;
+}
+- (id)initWithPosebook:(poseBooks *)bookHere
+{
+    self = [super init];
+    if (self)
+    {
+        self.isAdd = NO;
+        self.book = bookHere;
+    }
     return self;
 }
 
 
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	self.title=@"New Book";
     [super viewDidLoad];
+    if (self.isAdd)
+        self.title=@"New Book";
+    else
+        self.title = @"Edit Book Name";
+    self.bookNameTextField.text = self.book.name;
+    self.bookNameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
 }
-
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Overriden to allow any orientation.
     return YES;
 }
-
+-(IBAction)cancel:(id)sender
+{
+    [self.delegate bookWasCanceled];
+}
 -(IBAction) saveBook:(id) sender{
+    if (self.isAdd)
+    {
 	NSLog(@"Save Book: %@", self.bookNameTextField);
-	if(![self.bookNameTextField.text isEqualToString:@""] ){
+	if(!(([self.bookNameTextField.text isEqualToString:@""] )|| (self.bookNameTextField.text == nil)))
+    {
 		poseBooks *newBook = (poseBooks	*)[NSEntityDescription insertNewObjectForEntityForName:@"poseBooks" inManagedObjectContext:managedObjectContext];
 		newBook.name =self.bookNameTextField.text;
 		
 		NSError *error;
 		if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
-	}
+	
+        if(self.delegate != NULL){
+            [delegate bookWasAdded];
+        }
+        [self dismissModalViewControllerAnimated:YES];
+    }
 
 		//[self fetchResults];
 		
 		//[self.tableView reloadData];
 		
 		//[newBook release];
-	if(self.delegate != NULL){
-		[delegate bookWasAdded];
-	}
-	[self dismissModalViewControllerAnimated:YES];
+	
+    }
+    else
+    {
+        NSString *name = self.bookNameTextField.text;
+        [self.book setName:name];
+        [self.delegate bookAddDidEditName];
+        [self dismissModalViewControllerAnimated:YES];
+    }
+    
 //		
 	
 }
@@ -87,14 +117,6 @@
 }
 
 
-- (void)dealloc {
-	[bookNameTextField release];
-	[managedObjectContext release];
-	[fetchedResultsController release];
-	[saveBookButton release];
-	[bookNameLabel release];
-    [super dealloc];
-}
 
 
 @end

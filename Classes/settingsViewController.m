@@ -13,6 +13,7 @@
 @synthesize displayModesArray;
 @synthesize extWindow;
 @synthesize delegate;
+@synthesize book;
 UIScreen *extScreen;
 
 
@@ -24,7 +25,13 @@ UIScreen *extScreen;
     }
     return self;
 }
-
+-(id)initWithPosebook:(poseBooks *)poseBook
+{
+    self = [super init];
+    self.title = @"Settings";
+    self.book = poseBook;
+    return self;
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -35,9 +42,9 @@ UIScreen *extScreen;
 -(void) viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
-	NSLog(@"SettingsVC (VWA): sortBy Setting: %i", [prefs integerForKey:@"sortBy"]);
-	sortSettingsSegmentedControl.selectedSegmentIndex=[prefs integerForKey:@"sortBy"];
-	NSLog(@"SettingsVC (VWA): pinchMessage Setting: %d", [prefs boolForKey:@"displayPinchMessage"]);
+	//NSLog(@"SettingsVC (VWA): sortBy Setting: %i", [prefs integerForKey:@"sortBy"]);
+	sortSettingsSegmentedControl.selectedSegmentIndex=[self.book.alphaSorted intValue];
+	//NSLog(@"SettingsVC (VWA): pinchMessage Setting: %d", [prefs boolForKey:@"displayPinchMessage"]);
 	//BOOL pinchValue=[prefs boolForKey:@"displayPinchMessage"];
 	[pinchMessageSwitch setOn:[prefs boolForKey:@"displayPinchMessage"] animated:NO];
 	if([[UIScreen screens] count]>1){
@@ -52,9 +59,9 @@ UIScreen *extScreen;
 }
 
 -(IBAction) saveSettings:(id) sender{
-	NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
-	[prefs setObject:[NSString stringWithFormat:@"%i", sortSettingsSegmentedControl.selectedSegmentIndex] forKey:@"sortBy"];
-	[prefs synchronize];
+	//NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+	self.book.alphaSorted = [NSNumber numberWithInt:sortSettingsSegmentedControl.selectedSegmentIndex];
+	//[prefs synchronize];
 	[self dismissModalViewControllerAnimated:YES];
 }
 
@@ -134,9 +141,9 @@ UIScreen *extScreen;
 
 -(IBAction) changeSort:(id) sender{
 	NSLog(@"settingsVC(changeSort): Selected sort type was: %i", sortSettingsSegmentedControl.selectedSegmentIndex);
-	NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
-	[prefs setInteger:sortSettingsSegmentedControl.selectedSegmentIndex forKey:@"sortBy"];
-	[prefs synchronize];
+	//NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+	self.book.alphaSorted = [NSNumber numberWithInt:sortSettingsSegmentedControl.selectedSegmentIndex];
+	//prefs synchronize];
 	if(sortSettingsSegmentedControl.selectedSegmentIndex==0){
 		NSLog(@"settingsVC(changeSort): Selected sort type was: manual");
 	}else if(sortSettingsSegmentedControl.selectedSegmentIndex==1){
@@ -158,7 +165,6 @@ UIScreen *extScreen;
     return YES;
 }
 
-
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -174,11 +180,6 @@ UIScreen *extScreen;
 }
 
 
-- (void)dealloc {
-	[extWindow release];
-	[extScreen release];
-    [super dealloc];
-}
 
 
 @end

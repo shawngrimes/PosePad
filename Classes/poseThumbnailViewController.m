@@ -9,17 +9,18 @@
 #import "poseThumbnailViewController.h"
 #import "poseSummary.h"
 #import "detailViewController.h"
-#import "mainTableViewController.h"
-#import "mainBookViewController.h"
+#import "tableDisplayController.h"
 #import "settingsViewController.h"
 #import "infoViewController.h"
 #import "poseBooks.h"
-#import "JSON.h"
+//#import "JSON.h"
+#import "SBJson.h"
 //#import "getSamplesViewController.h"
 #import "posestoreMainViewController.h"
 #import <SystemConfiguration/SCNetworkReachability.h>
 #include <netinet/in.h>
-
+#import <QuartzCore/QuartzCore.h>
+#import "poseEditViewController.h"
 
 @implementation poseThumbnailViewController
 
@@ -28,7 +29,8 @@
 @synthesize editBookButton;
 @synthesize getSamplePosesButton;
 @synthesize navBar;
-@synthesize popoverController;
+@synthesize popoverController, menu;
+@synthesize checkButtons;
 
 @synthesize poses;
 
@@ -51,6 +53,7 @@
 @synthesize allEquipmentTableView;
 @synthesize allEquipmentUIView;
 @synthesize equipmentListUIView;
+@synthesize invisibleButtons;
 
 NSMutableArray *totalEquipmentArray;
 NSMutableArray *bookEquipmentArray;
@@ -71,15 +74,15 @@ NSMutableArray *bookEquipmentArray;
 }
 
 -(void) createView{
-	//self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	/*self.navigationItem.rightBarButtonItem = self.editButtonItem;
 	UIBarButtonItem *booksButton = [[UIBarButtonItem alloc] 
-								  initWithTitle:@"Pose Books" style:UIBarButtonItemStyleBordered 
+    							  initWithTitle:@"Pose Books" style:UIBarButtonItemStyleBordered 
 								  target:self 
 									action:@selector(showBooks:)];
-	self.navigationItem.leftBarButtonItem=booksButton;
+	self.navigationItem.leftBarButtonItem=booksButton;*/
 	self.bookNotesTextView.hidden=YES;
 	self.bookNotesLabel.hidden=YES;
-	[booksButton release];
+	//[booksButton release];
 	
 }
 
@@ -89,7 +92,23 @@ NSMutableArray *bookEquipmentArray;
 	[self generateThumbnails];
 	
 }
-
+-(IBAction) displaySettings:(id) sender{
+	if(self.popoverController.popoverVisible){
+		[self.popoverController dismissPopoverAnimated:YES];
+	}else{
+		settingsViewController *settingsVC = [[settingsViewController alloc] initWithPosebook:self.selectedBook];
+		settingsVC.contentSizeForViewInPopover=CGSizeMake(412.0, 200.0);
+		//settingsVC.extWindow=self.extWindow;
+		settingsVC.delegate=self;
+		UINavigationController *popoverNavCon = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+		UIPopoverController *aPopover = [[UIPopoverController alloc] initWithContentViewController:popoverNavCon];
+		aPopover.delegate = self;
+		[aPopover setPopoverContentSize:CGSizeMake(412.0, 200.0)];
+		
+		self.popoverController = aPopover;
+		[self.popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+	}
+}
 
 - (BOOL) connectedToNetwork
 {
@@ -119,7 +138,7 @@ NSMutableArray *bookEquipmentArray;
 	return ((isReachable && !needsConnection) || nonWiFi) ? YES : NO;
 }
 
--(void) showBooks:(id) sender{
+/*-(void) showBooks:(id) sender{
 	if(popoverController.popoverVisible){
 		[self.popoverController dismissPopoverAnimated:YES];
 		[self fetchResults];
@@ -148,36 +167,14 @@ NSMutableArray *bookEquipmentArray;
 		//}
 		[self.popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	}
-}
+}*/
 
 -(IBAction)getFreeSamples:(id) sender{
 	getSamplesViewController *getSamplesVC = [[getSamplesViewController alloc] initWithNibName:@"getSamplesViewController" bundle:nil];
 	getSamplesVC.managedObjectContext = managedObjectContext;
 	
 	[self presentModalViewController:getSamplesVC animated:YES];
-	[getSamplesVC release]; 
 	
-}
-
--(IBAction) displaySettings:(id) sender{
-	if(popoverController.popoverVisible){
-		[self.popoverController dismissPopoverAnimated:YES];
-	}else{
-		settingsViewController *settingsVC = [[settingsViewController alloc] init];
-		settingsVC.contentSizeForViewInPopover=CGSizeMake(412.0, 520.0);
-		settingsVC.extWindow=self.extWindow;
-		settingsVC.delegate=self;
-		UINavigationController *popoverNavCon = [[UINavigationController alloc] initWithRootViewController:settingsVC];
-		UIPopoverController *aPopover = [[UIPopoverController alloc] initWithContentViewController:popoverNavCon];
-		aPopover.delegate = self;
-		[aPopover setPopoverContentSize:CGSizeMake(412.0, 520.0)];
-		[settingsVC release];
-		[popoverNavCon release];
-		
-		self.popoverController = aPopover;
-		[aPopover release];
-		[self.popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-	}
 }
 
 -(IBAction) displayInfo:(id) sender{
@@ -191,11 +188,8 @@ NSMutableArray *bookEquipmentArray;
 			UIPopoverController *aPopover = [[UIPopoverController alloc] initWithContentViewController:popoverNavCon];
 			aPopover.delegate = self;
 			[aPopover setPopoverContentSize:CGSizeMake(200.0, 560.0)];
-			[infoVC release];
-			[popoverNavCon release];
 			
 			self.popoverController = aPopover;
-			[aPopover release];
 		
 		[self.popoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 	}
@@ -217,7 +211,7 @@ NSMutableArray *bookEquipmentArray;
 		self.bookNotesTextView.hidden=NO;
 		self.thumbnailScrollView.hidden=YES;
 		self.bookNotesLabel.hidden=NO;
-		self.editBookNotesButton.title=@"Thumbnails";
+		//self.editBookNotesButton.title=@"Thumbnails";
 		self.equipmentListUIView.hidden=NO;
 		[self fetchTotalEquipment];
 		[self fetchBookEquipment];
@@ -227,17 +221,22 @@ NSMutableArray *bookEquipmentArray;
 		self.bookNotesLabel.hidden=YES;
 		self.bookNotesTextView.hidden=YES;
 		self.thumbnailScrollView.hidden=NO;
-		self.editBookNotesButton.title=@"Notes";
-				self.equipmentListUIView.hidden=YES;
+		//self.editBookNotesButton.title=@"Notes";
+        self.equipmentListUIView.hidden=YES;
 		totalEquipmentArray=nil;
 	}
 	
 		[UIView commitAnimations];
+    
+    if (self.bookNotesTextView.hidden)
+        self.editBookNotesButton.title = @"Notes";
+    else
+        self.editBookNotesButton.title = @"Thumbnails";
 	
 }
 
 -(void) bookWasSelected:(poseBooks *) chosenBook{
-	[self showBooks:self];
+	//[self showBooks:self];
 	NSLog(@"(bookWasSelected)Selected %@ book", chosenBook.name);
 	self.selectedBook = chosenBook;
 	
@@ -266,7 +265,31 @@ NSMutableArray *bookEquipmentArray;
 		//[thumbnailItem release];
 	}
 }
-
+-(void)darkenButton:(id)sender
+{
+    UIButton *button = sender;
+    button.backgroundColor = [UIColor colorWithRed:.3 green:.3 blue:.3 alpha:.6];
+}
+-(void)unDarkenButton:(id)sender
+{
+    UIButton *button = sender;
+    button.backgroundColor = [UIColor clearColor];
+}
+-(void)checkButtonPressed:(id)sender
+{
+    UIImageView *checkImage = (UIImageView *)[[sender subviews] lastObject];
+    poseSummary *pose = [poses objectAtIndex:checkImage.tag];
+    if (pose.checked)
+    {
+        pose.checked = 0;
+        checkImage.image = [UIImage imageNamed:@"Gray-Check.png"];
+    }
+    else
+    {
+        pose.checked = [NSNumber numberWithBool:YES];
+        checkImage.image = [UIImage imageNamed:@"Green-Check.png"];
+    }
+}
 -(void) generateThumbnails{
 	thumbnailScrollView.contentMode = (UIViewContentModeScaleAspectFit);
 	
@@ -286,12 +309,12 @@ NSMutableArray *bookEquipmentArray;
 		horizontalSpace = (768 - (200 * 3)) / 4;
 	
 		//set the size og the ***content*** inside the scroller
-		height = (([[self.fetchedResultsController fetchedObjects] count] / 3) * (200 + VERTICAL_SPACE)) + (200+(VERTICAL_SPACE*2));
+		height = (([[self.fetchedResultsController fetchedObjects] count] / 2) * (200 + VERTICAL_SPACE)) + (200+(VERTICAL_SPACE*2));
 
 		[thumbnailScrollView setContentSize:CGSizeMake(self.view.bounds.size.width, height)];
 	}else if((self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) || (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft)){
 		horizontalSpace = (975 -(200*4))/4;
-		height=(([[self.fetchedResultsController fetchedObjects] count] / 4) * (200 + VERTICAL_SPACE)) + (200+(VERTICAL_SPACE*2));
+		height=(([[self.fetchedResultsController fetchedObjects] count] / 3) * (200 + VERTICAL_SPACE)) + (200+(VERTICAL_SPACE*2));
 		[thumbnailScrollView setContentSize:CGSizeMake(self.view.bounds.size.width , height)];
 	}
 	
@@ -304,7 +327,22 @@ NSMutableArray *bookEquipmentArray;
 	
 	UIButton *button;
 	UILabel *label;
+    UIImageView *checkView;
+    UIButton *checkButton;
 	poses = [[fetchedResultsController fetchedObjects] mutableCopy];
+    NSLog(@"%i", [poses count]);
+    if ([poses count] == 0)
+    {
+        suggestionLabel.hidden = NO;   
+        suggestionLabel.frame = CGRectMake(10, 20, self.view.frame.size.width-20, 40);
+
+    }
+    else
+    {
+        suggestionLabel.hidden = YES;
+    }
+    self.checkButtons = [[NSMutableArray alloc] initWithCapacity:[poses count]];
+    self.invisibleButtons = [[NSMutableArray alloc] initWithCapacity:[poses count]];
 	for (poseSummary *pose in poses) 
 	{
 		UIImage *iconImg;
@@ -316,107 +354,157 @@ NSMutableArray *bookEquipmentArray;
 			//[defaultFileName release];
 		}else{
 			iconImg= [[UIImage alloc] initWithData:[pose valueForKey:@"thumbnail"]];
+            //iconImg = [[UIImage alloc] initWithContentsOfFile:pose.imagePath];
 		}
 		
 		
 		//create a buttons
 		button = [UIButton buttonWithType: UIButtonTypeCustom];
 		//and add it as a sub view of the scorller
-		[self.view addSubview: button];
+		//[self.view addSubview: button];
 		//set the button's frame
 		CGRect frame;
+        UIView *poseView;
+        UIView *poseSubView;
+        UIImageView *poseThumb;
 		int rowHeight;
 		int i= [poses indexOfObject:pose];
 		if((self.interfaceOrientation == UIInterfaceOrientationPortrait) || (self.interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown)){
-			rowHeight=(i / 3 * (iconImg.size.height+40)) + VERTICAL_SPACE;
-			frame = CGRectMake (horizontalSpace + i % 3 * (iconImg.size.width + horizontalSpace), 
-								rowHeight, 
-								iconImg.size.width + 4, 
-								iconImg.size.height + 4);
+			rowHeight=(i / 2 * (iconImg.size.height)) + VERTICAL_SPACE;
+			frame = CGRectMake (horizontalSpace + i % 2 * (iconImg.size.width + horizontalSpace+125)+10, 
+								rowHeight+30, 
+								iconImg.size.width + 100, 
+								150);
 		}else if((self.interfaceOrientation == UIInterfaceOrientationLandscapeRight) || (self.interfaceOrientation == UIInterfaceOrientationLandscapeLeft)){
-			rowHeight=(i / 4 * (iconImg.size.height+40)) + VERTICAL_SPACE;
-			frame = CGRectMake (horizontalSpace + i % 4 * (iconImg.size.width + horizontalSpace), 
-								rowHeight, 
-								iconImg.size.width + 4, 
-								iconImg.size.height + 4);
+			rowHeight=(i / 3 * (iconImg.size.height-10)) + VERTICAL_SPACE;
+			frame = CGRectMake (horizontalSpace + i % 3 * (iconImg.size.width + horizontalSpace+85)-10, 
+								rowHeight+20, 
+								iconImg.size.width + 100, 
+								150);
 		}
 		//NSLog(@"RowHeight: %i", rowHeight);
 		//i / 3 * (iconImg.size.height + VERTICAL_SPACE), 
 		
 		
-		[button setFrame: frame];
-		[button setBackgroundColor:[UIColor orangeColor]];
+		[button setFrame: CGRectMake(0, 0, frame.size.width, frame.size.height)];
+		[button setBackgroundColor:[UIColor clearColor]];
 		//do setBackgroundImage and setImage:forState: here.
 		button.tag=[pose.sortIndex intValue];
-		[button setImage:iconImg forState:UIControlStateNormal]; 
-		
+		//[button setImage:iconImg forState:UIControlStateNormal]; 
+		button.layer.cornerRadius = 15.0;
 		[button addTarget: self action:@selector(thumbnailTouch:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(darkenButton:) forControlEvents:UIControlEventTouchDown];
+        [button addTarget:self action:@selector(unDarkenButton:) forControlEvents:UIControlEventTouchDragOutside];
 		[button setTag:i];
 		
-		[button setTitle:pose.title forState:UIControlStateNormal];
-		
-		[thumbnailScrollView addSubview:button];
-		
-		
-		//alloc the label and init it frame
-		label = [[UILabel alloc] initWithFrame:CGRectMake(frame.origin.x ,(frame.origin.y + frame.size.height + 10), frame.size.width, 15)];
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(poseMenu:)];
+        longPress.allowableMovement = 25.0;
+        [button addGestureRecognizer:longPress];
+        [[longPress view] setTag:i];
+        
+        [self.invisibleButtons addObject:button];
+        
+        poseThumb = [[UIImageView alloc] initWithImage:iconImg];
+        //poseThumb.frame = CGRectMake(0, 0, iconImg.size.width, iconImg.size.height);
+        poseThumb.frame = CGRectMake(0, 0, 150, 150);
+        poseThumb.layer.cornerRadius = 15.0;
+        poseThumb.clipsToBounds = YES;
+        //poseThumb.contentMode = UIViewContentModeScaleAspectFit;
+        
+        poseView = [[UIView alloc] initWithFrame:frame];
+        poseView.layer.cornerRadius = 15.0;
+        poseView.clipsToBounds = YES;
+        poseView.backgroundColor = [UIColor colorWithRed:.9 green:.9 blue:.9 alpha:0.6];
+        [poseView addSubview:poseThumb];
+        
+        poseSubView = [[UIView alloc] initWithFrame:CGRectMake(140, -5, frame.size.width-140, frame.size.height+10)];
+        poseSubView.backgroundColor = [UIColor colorWithRed:0.75 green:0.75 blue:0.75 alpha:1.0];
+        poseSubView.layer.borderColor = [[UIColor blackColor] CGColor];
+        poseSubView.layer.borderWidth = 1.0;
+        //alloc the label and init it frame
+		label = [[UILabel alloc] initWithFrame:CGRectMake(10 , 10, frame.size.width-150, 60)];
 		//set parameters
 		label.textAlignment = UITextAlignmentCenter;
-		label.userInteractionEnabled = NO;
-		label.font = [UIFont fontWithName:@"Arial" size:14 ];
-		label.backgroundColor = [UIColor blackColor];
-		label.textColor= [UIColor lightGrayColor];
+		label.font = [UIFont fontWithName:@"Arial" size:19.0 ];
+		label.backgroundColor = [UIColor clearColor];
+		label.textColor= [UIColor colorWithRed:.1 green:.1 blue:.1 alpha:1];
+        label.shadowColor = [UIColor colorWithRed:.4 green:.4 blue:.4 alpha:.6];
+        label.shadowOffset = CGSizeMake(-1.0, -1.0);
 		label.numberOfLines = 1;
 		label.minimumFontSize = 12;
 		//set its text
 		label.text = pose.title;
 		//add the label to the scroller view
-		[thumbnailScrollView addSubview:label];
-		[label release];
-		[iconImg release];
+		[poseSubView addSubview:label];
+        
+        if (pose.checked)
+        {
+            checkView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Green-Check.png"]];
+        }
+        else
+        {
+            checkView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Gray-Check.png"]];
+        }
+        [self.checkButtons addObject:checkView];
+        checkView.frame = CGRectMake(0, 0, 50, 50);
+        checkView.tag = i;
+        checkButton = [[UIButton alloc] initWithFrame:CGRectMake(250, 100, 50, 50)];
+        [checkButton addTarget:self action:@selector(checkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [poseView addSubview:poseSubView];
+        [checkButton addSubview:checkView];
+		[poseView addSubview:button];
+        [poseView addSubview:checkButton];
+        
+        [thumbnailScrollView addSubview:poseView];
 		//[pose release];
 	}
+    
 	//[posesArray release];
-	self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor clearColor];
+    thumbnailScrollView.backgroundColor = [UIColor clearColor];
 	[self.view addSubview:thumbnailScrollView];
 	//[poses release];
 	[super viewDidLoad];
 }
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.title=@"Back";
+}
 -(IBAction) editBook:(id) sender{
 
-	mainTableViewController *mainTVC = [[mainTableViewController alloc] initWithStyle:UITableViewStylePlain];
+	tableDisplayController *mainTVC = [[tableDisplayController alloc] init];
 	mainTVC.managedObjectContext=managedObjectContext;
 	mainTVC.fetchedResultsController=fetchedResultsController;
 	mainTVC.selectedBook=self.selectedBook;
 	[self.navigationController setToolbarHidden:NO];
 	[self.navigationController pushViewController:mainTVC animated:YES];
-	[mainTVC release];
 	
 }
 
 -(void) thumbnailTouch:(id) sender{
-	detailViewController * dvc = [[detailViewController alloc] initWithNibName:nil bundle:nil];
-	dvc.managedObjectContext = managedObjectContext;
-	dvc.fetchedResultsController= self.fetchedResultsController;
+    
+	detailViewController * dvc = [[detailViewController alloc] initWithNibName:nil bundle:nil managedObjectContest:managedObjectContext fetchedResultsController:self.fetchedResultsController];
+	//dvc.managedObjectContext = managedObjectContext;
+	//dvc.fetchedResultsController= self.fetchedResultsController;
 		
 	UIButton *btn = (UIButton *) sender;
-	NSLog(@"poseThumbVC:(thumbnailTouch)Sender: %i", btn.tag);
-	NSLog(@"poseThumbVC:(thumbnailTouch)Poses Count: %i", [poses count]);
+    btn.backgroundColor = [UIColor clearColor];
+	//NSLog(@"poseThumbVC:(thumbnailTouch)Sender: %i", btn.tag);
+	//NSLog(@"poseThumbVC:(thumbnailTouch)Poses Count: %i", [poses count]);
 	poseSummary *selectedPose=[poses objectAtIndex:btn.tag];
-	NSIndexPath *currentIndexPath = [self.fetchedResultsController indexPathForObject:selectedPose];
+	//NSIndexPath *currentIndexPath = [self.fetchedResultsController indexPathForObject:selectedPose];
 
-	NSLog(@"poseThumbVC:(thumbnailTouch)Selected Pose: %@", selectedPose.title);
+	/*NSLog(@"poseThumbVC:(thumbnailTouch)Selected Pose: %@", selectedPose.title);
 	NSLog(@"poseThumbVC:(thumbnailTouch)Poses Count in FRC: %i", [[self.fetchedResultsController fetchedObjects] count]);
 	NSLog(@"poseThumbVC:(thumbnailTouch)selected Pose: %@", selectedPose);
 	NSLog(@"poseThumbVC:(thumbnailTouch)poses: %@", [self.fetchedResultsController fetchedObjects]);
 	NSLog(@"poseThumbVC:(thumbnailTouch)Cache Name: %@", self.fetchedResultsController.cacheName);
-	NSLog(@"poseThumbVC:(thumbnailTouch)Index Path for chosen pose: %@", currentIndexPath);
+	NSLog(@"poseThumbVC:(thumbnailTouch)Index Path for chosen pose: %@", currentIndexPath);*/
 	
 	[dvc populateViewWithPoseFromObject:selectedPose];
 
 	[self.navigationController pushViewController:dvc animated:YES];
-	[dvc release];
 	
 }
 -(void)externalDisplayEnabled:(UIWindow *) extWindowSetting{
@@ -478,13 +566,8 @@ NSMutableArray *bookEquipmentArray;
 					self.selectedBook.name = @"DEFAULT";
 					if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
 				}
-			[newBookFRC release];
 		}
 		
-		[bookFRC release];
-		[bookRequest release];
-		[booksortDescriptors release];
-		[booksortDescriptor release];
 	//}
 
 	
@@ -498,11 +581,11 @@ NSMutableArray *bookEquipmentArray;
 	
 	NSLog(@"poseThumbVC:(fetchResults) Predicate: SELF IN %@", self.selectedBook.name );
 	
-	self.title = [NSString stringWithFormat:@"Thumbnails for : %@ :",selectedBook.name];
+	self.title = [NSString stringWithFormat:@"%@",selectedBook.name];
 	
-	NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+	//NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
 	NSSortDescriptor *sortDescriptor;
-	NSInteger sortSetting=[prefs integerForKey:@"sortBy"];
+	NSInteger sortSetting=[self.selectedBook.alphaSorted intValue];
 	if(sortSetting==0){
 		sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortIndex" ascending:YES];
 	}else if(sortSetting==1){
@@ -524,9 +607,6 @@ NSMutableArray *bookEquipmentArray;
 	//for (poseSummary *tempPose in [self.fetchedResultsController fetchedObjects]){
 	//	NSLog(@"poseThumbVC:(fetchResults) Found pose: %@", tempPose.title);
 	//}
-	[request release];
-	[sortDescriptors release];
-	[sortDescriptor release];
 	
 	
 	
@@ -542,12 +622,12 @@ NSMutableArray *bookEquipmentArray;
 	[equipmentRequest setSortDescriptors:equipmentsortDescriptors];
 	
 	NSError *error;
-	NSArray *fetchedObjects=[[[NSArray alloc] init] autorelease];
+	NSArray *fetchedObjects=[[NSArray alloc] init];
 	fetchedObjects=[self.managedObjectContext executeFetchRequest:equipmentRequest error:&error];
 	if(fetchedObjects!=nil){
 		NSLog(@"FetchedObjects= %i", [fetchedObjects count]);
 		if(totalEquipmentArray==nil){
-			totalEquipmentArray = [[[NSMutableArray alloc] initWithCapacity:[fetchedObjects count]] retain];
+			totalEquipmentArray = [[NSMutableArray alloc] initWithCapacity:[fetchedObjects count]];
 			[totalEquipmentArray setArray:fetchedObjects];
 			
 		}else{
@@ -555,7 +635,6 @@ NSMutableArray *bookEquipmentArray;
 		}
 		NSLog(@"Added %i equipment to equipmentList", [totalEquipmentArray count]);
 	}
-	[equipmentRequest release];	
 
 }
 
@@ -573,12 +652,12 @@ NSMutableArray *bookEquipmentArray;
 	[equipmentRequest setPredicate:bookPredicate];
 	
 	NSError *error;
-	NSArray *fetchedObjects=[[[NSArray alloc] init] autorelease];
+	NSArray *fetchedObjects=[[NSArray alloc] init];
 	fetchedObjects=[self.managedObjectContext executeFetchRequest:equipmentRequest error:&error];
 	if(fetchedObjects!=nil){
 		NSLog(@"FetchedObjects= %i", [fetchedObjects count]);
 		if(bookEquipmentArray==nil){
-			bookEquipmentArray = [[[NSMutableArray alloc] initWithCapacity:[fetchedObjects count]] retain];
+			bookEquipmentArray = [[NSMutableArray alloc] initWithCapacity:[fetchedObjects count]];
 			[bookEquipmentArray setArray:fetchedObjects];
 			
 		}else{
@@ -586,24 +665,113 @@ NSMutableArray *bookEquipmentArray;
 		}
 		NSLog(@"Added %i equipment to equipmentList", [bookEquipmentArray count]);
 	}
-	[equipmentRequest release];	
 	
 }
 
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    poseSummary *pose = [poses objectAtIndex:selectedPoseIndex];
+    if (buttonIndex == actionSheet.destructiveButtonIndex)
+    {
+        //NSLog(@"Delete");
+        
+        NSManagedObject *goneObject = pose;      
+        [self.managedObjectContext deleteObject:goneObject];
+        NSError *error;
+        if ([managedObjectContext save:&error])
+        {
+            [actionSheet dismissWithClickedButtonIndex:[actionSheet cancelButtonIndex] animated:YES];
+            [self fetchResults];
+            [self generateThumbnails];
+        }
+        else
+        {
+            NSLog(@"Error saving Delete"); 
+        }
+    }
+    else if (buttonIndex == actionSheet.firstOtherButtonIndex)
+    {    
+        poseEditViewController *editVC = [[poseEditViewController alloc] initWithPose:pose];
+        editVC.delegate = self;
+        editVC.modalPresentationStyle = UIModalPresentationFullScreen;
+        [self presentModalViewController:editVC animated:YES];
+    }
+    menuIsVisible = NO;
+}
+//-(void)
+-(void)poseMenu:(id)sender
+{
+    UILongPressGestureRecognizer *longPress = sender;
+    if (longPress.state == UIGestureRecognizerStateBegan)
+    {
+        int index = [[longPress view] tag];
+        selectedPoseIndex = index;
+        UIButton *button = [self.invisibleButtons objectAtIndex:selectedPoseIndex];
+        if (!menuIsVisible)
+        {
+            [self unDarkenButton:button];
+            self.menu = [[UIActionSheet alloc] initWithTitle:@"Pose Menu" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"Delete Pose" otherButtonTitles:@"Edit Pose Name", nil];
+            self.menu.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+            [self.menu showFromRect:[button.superview frame] inView:self.view animated:YES];
+            self.menu;
+            menuIsVisible = YES;
+        }
+        else
+        {
+            NSLog(@"dismiss");
+            [self.menu  dismissWithClickedButtonIndex:menu.cancelButtonIndex animated:YES];
+            menuIsVisible = NO;
+        }
+    }
+}
+-(void)clearChecks
+{
+    //NSLog(@"%i", [self.checkButtons count]);
+    for (poseSummary *pose in poses)
+    {
+        pose.checked = 0;
+    }
+    for (UIImageView *checkView in self.checkButtons)
+    {
+        if ([checkView.image isEqual:[UIImage imageNamed:@"Green-Check.png"]])
+        {
+            checkView.image = [UIImage imageNamed:@"Gray-Check.png"];
+        }
+    }
+}
+
 - (void)viewDidLoad {
 	self.title =@"Thumbnails";
-	
+	menuIsVisible = NO;
+   // suggestionLabel.hidden = YES;
 	NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
 	if(![prefs integerForKey:@"showDeleteWarning"]){
-		UIAlertView *alertView=[[[UIAlertView alloc] initWithTitle:@"Warning!" message:@"In this version, if you delete a pose book, it will delete ALL the poses in that book" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+		UIAlertView *alertView=[[UIAlertView alloc] initWithTitle:@"Warning!" message:@"In this version, if you delete a pose book, it will delete ALL the poses in that book" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alertView show];
 		[prefs setInteger:1 forKey:@"showDeleteWarning"];
 		[prefs synchronize];
 	}
 
 	//[self generateThumbnails];
+    
+    UIBarButtonItem *clearChecks = [[UIBarButtonItem alloc] initWithTitle:@"Uncheck All" style:UIBarButtonItemStyleBordered target:self action:@selector(clearChecks)];
+    
+    //UIBarButtonItem 
+    UIBarButtonItem *editBook = [[UIBarButtonItem alloc] initWithTitle:@"Edit Book" style:UIBarButtonItemStyleBordered target:self action:@selector(editBook:)];
+    
+    
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings-icon.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(displaySettings:)];
+    
+    NSArray *buttons = [[NSArray alloc] initWithObjects:clearChecks, editBook, settingsButton, nil];
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    [toolbar setItems:buttons];
+    toolbar.barStyle = UIBarStyleBlackOpaque;
+    toolbar.frame = CGRectMake(0, 0, 240, 44);
+    
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolbar];
 	
     [super viewDidLoad];
 }
@@ -676,8 +844,6 @@ NSMutableArray *bookEquipmentArray;
 		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 		[request setSortDescriptors:sortDescriptors];
-		[sortDescriptor release];
-		[sortDescriptors release];
 		
 		NSFetchedResultsController *equipmentSearchResultsController=[[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 		
@@ -686,7 +852,6 @@ NSMutableArray *bookEquipmentArray;
 		//NSError *error;
 		if (![equipmentSearchResultsController performFetch:&error]) NSLog(@"Error Fetching: %@", [error localizedDescription]);	
 		NSLog(@"fetchEquipment:(fetchResults)Found %i players that matched", [[equipmentSearchResultsController fetchedObjects] count]);	
-		[request release];
 		
 		//player *typedPlayer;
 		EquipmentClass *equipment;
@@ -704,7 +869,6 @@ NSMutableArray *bookEquipmentArray;
 		
 		if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
 		
-		[request release];
 		
 		//Refresh table view
 		//[bookEquipmentArray sortUsingSelector:@selector(localizedCaseInsensitiveCompare)];
@@ -760,7 +924,7 @@ NSMutableArray *bookEquipmentArray;
 	static NSString *cellIdentifier=@"Cell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 	if(cell==nil){
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
 	}
 	if(tableView.tag==1){
 		NSLog(@"Index Path: %d", indexPath.row);
@@ -792,8 +956,6 @@ NSMutableArray *bookEquipmentArray;
 			NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 			NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 			[request setSortDescriptors:sortDescriptors];
-			[sortDescriptor release];
-			[sortDescriptors release];
 			
 			NSFetchedResultsController *equipmentSearchResultsController=[[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 			
@@ -802,7 +964,6 @@ NSMutableArray *bookEquipmentArray;
 			//NSError *error;
 			if (![equipmentSearchResultsController performFetch:&error]) NSLog(@"Error Fetching: %@", [error localizedDescription]);	
 			NSLog(@"fetchEquipment:(fetchResults)Found %i equipment that matched", [[equipmentSearchResultsController fetchedObjects] count]);	
-			[request release];
 			
 			//player *typedPlayer;
 			EquipmentClass *equipment;
@@ -816,7 +977,6 @@ NSMutableArray *bookEquipmentArray;
 				if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
 			}
 			
-			[request release];
 			
 			
 			[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
@@ -849,6 +1009,7 @@ NSMutableArray *bookEquipmentArray;
 }
 
 - (void)viewDidUnload {
+    self.checkButtons = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -856,45 +1017,35 @@ NSMutableArray *bookEquipmentArray;
 
 
 - (void)dealloc {
-	[notesView release];
-	[editEquipmentList release];
 	equipmentTextField.delegate=nil;
-	[equipmentTextField release];
 	sessionEquipmentTableView.delegate=nil;
-	[sessionEquipmentTableView release];
 	allEquipmentTableView.delegate=nil;
-	[allEquipmentTableView release];
 
-	[allEquipmentUIView release];
-	[equipmentListUIView release];
 	
 	
 	
-	[thumbnailScrollView release];
-	[managedObjectContext release];
-	[fetchedResultsController release];
 	
-	[navBar release];
 	
-	[toolBar release];
-	[editBookButton release];
-	[getSamplePosesButton release];
-	[displaySettingsButton release];
-	[displayInfoButton release];
-	[activityIndicator release];
-	[editBookNotesButton release];
-	[bookNotesTextView release];
 	
-	[popoverController release];
 	
-	[lastBookName release];
 	
-	[poses release];
 	
-	[selectedBook release];
-	[extWindow release];
-    [super dealloc];
 }
-
+-(void)bookAddDidEditName
+{
+    NSError *error;
+    if ([self.managedObjectContext save:&error])
+    {
+        [self fetchResults];
+        [self generateThumbnails];
+    }
+    else
+        NSLog(@"Error Saving");
+    [self dismissModalViewControllerAnimated:YES];
+}
+-(void)bookWasCanceled
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 @end

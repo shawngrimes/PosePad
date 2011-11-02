@@ -3,10 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1302C01413E6F2600050EB83 /* PoseBook Surround.png in Resources */ = {isa = PBXBuildFile; fileRef = 1302C01313E6F2600050EB83 /* PoseBook Surround.png */; };
+		131AB05513DCC0A200F50AC8 /* poseBookThumbnailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131AB05313DCC0A100F50AC8 /* poseBookThumbnailViewController.m */; };
+		131AB05613DCC0A200F50AC8 /* poseBookThumbnailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 131AB05413DCC0A200F50AC8 /* poseBookThumbnailViewController.xib */; };
+		134A2F5C13E0C6CE0082C523 /* poseEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 134A2F5A13E0C6CC0082C523 /* poseEditViewController.m */; };
+		134A2F5D13E0C6CE0082C523 /* poseEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 134A2F5B13E0C6CD0082C523 /* poseEditViewController.xib */; };
+		1369FD7C13DDE06100C01E62 /* Gray-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 1369FD7A13DDE06100C01E62 /* Gray-Check.png */; };
+		1369FD7D13DDE06100C01E62 /* Green-Check.png in Resources */ = {isa = PBXBuildFile; fileRef = 1369FD7B13DDE06100C01E62 /* Green-Check.png */; };
+		1369FD9113DDF30600C01E62 /* NewPoseThumb.png in Resources */ = {isa = PBXBuildFile; fileRef = 1369FD9013DDF30600C01E62 /* NewPoseThumb.png */; };
+		13D84B6613E6FD7D00A6F7E3 /* poseSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D84B6513E6FD7D00A6F7E3 /* poseSummary.m */; };
+		13D84B6A13E6FE4B00A6F7E3 /* poseBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D84B6913E6FE4B00A6F7E3 /* poseBooks.m */; };
+		13EB788713CB8BEC001CDB39 /* tableDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EB788513CB8BEB001CDB39 /* tableDisplayController.m */; };
+		13EB788813CB8BEC001CDB39 /* tableDisplayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13EB788613CB8BEC001CDB39 /* tableDisplayController.xib */; };
+		13EB789D13CE1E33001CDB39 /* PosePad 2 Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 13EB789C13CE1E33001CDB39 /* PosePad 2 Background.png */; };
+		13EB78BA13D0DC88001CDB39 /* diagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13EB78B813D0DC88001CDB39 /* diagramViewController.m */; };
+		13EB78BB13D0DC88001CDB39 /* diagramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13EB78B913D0DC88001CDB39 /* diagramViewController.xib */; };
+		13EB78BE13D0DF24001CDB39 /* detailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13EB78BD13D0DF24001CDB39 /* detailViewController.xib */; };
 		1D3623260D0F684500981E51 /* PoseBookAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* PoseBookAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -15,14 +31,24 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		290595A7115BD81900686C4D /* pose.m in Sources */ = {isa = PBXBuildFile; fileRef = 290595A4115BD81900686C4D /* pose.m */; };
 		290595A8115BD81900686C4D /* poseList.m in Sources */ = {isa = PBXBuildFile; fileRef = 290595A6115BD81900686C4D /* poseList.m */; };
-		290595AC115BD82D00686C4D /* mainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 290595AB115BD82D00686C4D /* mainTableViewController.m */; };
 		290595B0115BD83A00686C4D /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 290595AE115BD83A00686C4D /* detailViewController.m */; };
-		290595B1115BD83A00686C4D /* detailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 290595AF115BD83A00686C4D /* detailViewController.xib */; };
 		290595B5115BDAC200686C4D /* ImageNotFound.png in Resources */ = {isa = PBXBuildFile; fileRef = 290595B3115BDAC200686C4D /* ImageNotFound.png */; };
 		292911BA11C698AB004BAF61 /* PoseBookDownloadProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 292911B811C698AB004BAF61 /* PoseBookDownloadProgressView.m */; };
 		292911BB11C698AB004BAF61 /* PoseBookDownloadProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292911B911C698AB004BAF61 /* PoseBookDownloadProgressView.xib */; };
 		2931CEE3117CF2E300C60245 /* bookPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2931CEE1117CF2E300C60245 /* bookPickerViewController.m */; };
 		2931CEE4117CF2E300C60245 /* bookPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2931CEE2117CF2E300C60245 /* bookPickerViewController.xib */; };
+		293B4CE414563FFC005B71D8 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CCC14563FFC005B71D8 /* NSObject+SBJson.m */; };
+		293B4CE514563FFC005B71D8 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CCF14563FFC005B71D8 /* SBJsonParser.m */; };
+		293B4CE614563FFC005B71D8 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CD114563FFC005B71D8 /* SBJsonStreamParser.m */; };
+		293B4CE714563FFC005B71D8 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CD314563FFC005B71D8 /* SBJsonStreamParserAccumulator.m */; };
+		293B4CE814563FFC005B71D8 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CD514563FFC005B71D8 /* SBJsonStreamParserAdapter.m */; };
+		293B4CE914563FFC005B71D8 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CD714563FFC005B71D8 /* SBJsonStreamParserState.m */; };
+		293B4CEA14563FFC005B71D8 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CD914563FFC005B71D8 /* SBJsonStreamWriter.m */; };
+		293B4CEB14563FFC005B71D8 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CDB14563FFC005B71D8 /* SBJsonStreamWriterAccumulator.m */; };
+		293B4CEC14563FFC005B71D8 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CDD14563FFC005B71D8 /* SBJsonStreamWriterState.m */; };
+		293B4CED14563FFC005B71D8 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CDF14563FFC005B71D8 /* SBJsonTokeniser.m */; };
+		293B4CEE14563FFC005B71D8 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CE114563FFC005B71D8 /* SBJsonUTF8Stream.m */; };
+		293B4CEF14563FFC005B71D8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 293B4CE314563FFC005B71D8 /* SBJsonWriter.m */; };
 		293D88C011A84CC800157EB9 /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 293D88BF11A84CC800157EB9 /* settings-icon.png */; };
 		293D88C211A84D2800157EB9 /* info-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 293D88C111A84D2800157EB9 /* info-icon.png */; };
 		293E827811691D9E00816ABC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 293E827711691D9E00816ABC /* CoreData.framework */; };
@@ -46,12 +72,6 @@
 		2986ADCD119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2986ADCB119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m */; };
 		2986ADCE119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2986ADCC119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.xib */; };
 		2986ADD9119DCE5300B5F1F1 /* polaroid-stack.png in Resources */ = {isa = PBXBuildFile; fileRef = 2986ADD8119DCE5300B5F1F1 /* polaroid-stack.png */; };
-		2997E0C41180D2E000FA4B7E /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0B91180D2E000FA4B7E /* NSObject+SBJSON.m */; };
-		2997E0C51180D2E000FA4B7E /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0BB1180D2E000FA4B7E /* NSString+SBJSON.m */; };
-		2997E0C61180D2E000FA4B7E /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0BD1180D2E000FA4B7E /* SBJSON.m */; };
-		2997E0C71180D2E000FA4B7E /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0BF1180D2E000FA4B7E /* SBJsonBase.m */; };
-		2997E0C81180D2E000FA4B7E /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0C11180D2E000FA4B7E /* SBJsonParser.m */; };
-		2997E0C91180D2E000FA4B7E /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E0C31180D2E000FA4B7E /* SBJsonWriter.m */; };
 		2997E1D811811E6A00FA4B7E /* getSamplesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2997E1D611811E6A00FA4B7E /* getSamplesViewController.m */; };
 		2997E1D911811E6A00FA4B7E /* getSamplesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2997E1D711811E6A00FA4B7E /* getSamplesViewController.xib */; };
 		2997E27F1181411300FA4B7E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2997E27E1181411300FA4B7E /* SystemConfiguration.framework */; };
@@ -61,11 +81,7 @@
 		2999F33B1199E15B00027E3D /* posestoreMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2999F3391199E15B00027E3D /* posestoreMainViewController.xib */; };
 		29A5104411AC575B000DAE5E /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 29A5104311AC575B000DAE5E /* TestImage.png */; };
 		29B1C19613CB5440007FA961 /* _EquipmentClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C18B13CB5440007FA961 /* _EquipmentClass.m */; };
-		29B1C19713CB5440007FA961 /* _poseBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C18D13CB5440007FA961 /* _poseBooks.m */; };
-		29B1C19813CB5440007FA961 /* _poseSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C18F13CB5440007FA961 /* _poseSummary.m */; };
 		29B1C19913CB5440007FA961 /* EquipmentClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C19113CB5440007FA961 /* EquipmentClass.m */; };
-		29B1C19A13CB5440007FA961 /* poseBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C19313CB5440007FA961 /* poseBooks.m */; };
-		29B1C19B13CB5440007FA961 /* poseSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B1C19513CB5440007FA961 /* poseSummary.m */; };
 		29CD2527126378580044824E /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CD2526126378580044824E /* Appirater.m */; };
 		29ECBDD0119E31560094D97F /* InAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29ECBDCF119E31560094D97F /* InAppPurchaseManager.m */; };
 		29FB73C611A2E997007C3912 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29FB73C511A2E997007C3912 /* MessageUI.framework */; };
@@ -73,12 +89,34 @@
 		29FDC57A1176737300463E05 /* poseThumbnailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FDC5781176737300463E05 /* poseThumbnailViewController.xib */; };
 		29FDC7221177661500463E05 /* posepad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC7211177661500463E05 /* posepad.xcdatamodeld */; };
 		29FDC7A81177815E00463E05 /* posepad2.0.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC7A71177815E00463E05 /* posepad2.0.xcmappingmodel */; };
-		29FDC7CE11778B5900463E05 /* mainBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC7CD11778B5900463E05 /* mainBookViewController.m */; };
 		29FDC7D51177902200463E05 /* bookAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FDC7D31177902200463E05 /* bookAddViewController.m */; };
 		29FDC7D61177902200463E05 /* bookAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29FDC7D41177902200463E05 /* bookAddViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1302BFF713E5CD320050EB83 /* posepad 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "posepad 5.xcdatamodel"; sourceTree = "<group>"; };
+		1302C01313E6F2600050EB83 /* PoseBook Surround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PoseBook Surround.png"; sourceTree = "<group>"; };
+		131AB05213DCC0A100F50AC8 /* poseBookThumbnailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseBookThumbnailViewController.h; sourceTree = "<group>"; };
+		131AB05313DCC0A100F50AC8 /* poseBookThumbnailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseBookThumbnailViewController.m; sourceTree = "<group>"; };
+		131AB05413DCC0A200F50AC8 /* poseBookThumbnailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = poseBookThumbnailViewController.xib; sourceTree = "<group>"; };
+		134A2F5913E0C6CA0082C523 /* poseEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseEditViewController.h; sourceTree = "<group>"; };
+		134A2F5A13E0C6CC0082C523 /* poseEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseEditViewController.m; sourceTree = "<group>"; };
+		134A2F5B13E0C6CD0082C523 /* poseEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = poseEditViewController.xib; sourceTree = "<group>"; };
+		1369FD7A13DDE06100C01E62 /* Gray-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gray-Check.png"; sourceTree = "<group>"; };
+		1369FD7B13DDE06100C01E62 /* Green-Check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Green-Check.png"; sourceTree = "<group>"; };
+		1369FD9013DDF30600C01E62 /* NewPoseThumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewPoseThumb.png; sourceTree = "<group>"; };
+		13D84B6413E6FD7D00A6F7E3 /* poseSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = poseSummary.h; path = ../../poseSummary.h; sourceTree = "<group>"; };
+		13D84B6513E6FD7D00A6F7E3 /* poseSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = poseSummary.m; path = ../../poseSummary.m; sourceTree = "<group>"; };
+		13D84B6813E6FE4B00A6F7E3 /* poseBooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = poseBooks.h; path = ../../poseBooks.h; sourceTree = "<group>"; };
+		13D84B6913E6FE4B00A6F7E3 /* poseBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = poseBooks.m; path = ../../poseBooks.m; sourceTree = "<group>"; };
+		13EB788413CB8BEB001CDB39 /* tableDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tableDisplayController.h; sourceTree = "<group>"; };
+		13EB788513CB8BEB001CDB39 /* tableDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tableDisplayController.m; sourceTree = "<group>"; };
+		13EB788613CB8BEC001CDB39 /* tableDisplayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tableDisplayController.xib; sourceTree = "<group>"; };
+		13EB789C13CE1E33001CDB39 /* PosePad 2 Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PosePad 2 Background.png"; sourceTree = "<group>"; };
+		13EB78B713D0DC88001CDB39 /* diagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diagramViewController.h; sourceTree = "<group>"; };
+		13EB78B813D0DC88001CDB39 /* diagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diagramViewController.m; sourceTree = "<group>"; };
+		13EB78B913D0DC88001CDB39 /* diagramViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = diagramViewController.xib; sourceTree = "<group>"; };
+		13EB78BD13D0DF24001CDB39 /* detailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = detailViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* PoseBookAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoseBookAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* PoseBookAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoseBookAppDelegate.m; sourceTree = "<group>"; };
@@ -89,11 +127,8 @@
 		290595A4115BD81900686C4D /* pose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pose.m; sourceTree = "<group>"; };
 		290595A5115BD81900686C4D /* poseList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseList.h; sourceTree = "<group>"; };
 		290595A6115BD81900686C4D /* poseList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseList.m; sourceTree = "<group>"; };
-		290595AA115BD82D00686C4D /* mainTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainTableViewController.h; sourceTree = "<group>"; };
-		290595AB115BD82D00686C4D /* mainTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainTableViewController.m; sourceTree = "<group>"; };
 		290595AD115BD83A00686C4D /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
 		290595AE115BD83A00686C4D /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
-		290595AF115BD83A00686C4D /* detailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = detailViewController.xib; sourceTree = "<group>"; };
 		290595B3115BDAC200686C4D /* ImageNotFound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ImageNotFound.png; sourceTree = "<group>"; };
 		292911B711C698AB004BAF61 /* PoseBookDownloadProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoseBookDownloadProgressView.h; sourceTree = "<group>"; };
 		292911B811C698AB004BAF61 /* PoseBookDownloadProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoseBookDownloadProgressView.m; sourceTree = "<group>"; };
@@ -101,6 +136,31 @@
 		2931CEE0117CF2E300C60245 /* bookPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookPickerViewController.h; sourceTree = "<group>"; };
 		2931CEE1117CF2E300C60245 /* bookPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookPickerViewController.m; sourceTree = "<group>"; };
 		2931CEE2117CF2E300C60245 /* bookPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookPickerViewController.xib; sourceTree = "<group>"; };
+		293B4CCB14563FFC005B71D8 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = SOURCE_ROOT; };
+		293B4CCC14563FFC005B71D8 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = SOURCE_ROOT; };
+		293B4CCD14563FFC005B71D8 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = SOURCE_ROOT; };
+		293B4CCE14563FFC005B71D8 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = SOURCE_ROOT; };
+		293B4CCF14563FFC005B71D8 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = SOURCE_ROOT; };
+		293B4CD014563FFC005B71D8 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = SOURCE_ROOT; };
+		293B4CD114563FFC005B71D8 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = SOURCE_ROOT; };
+		293B4CD214563FFC005B71D8 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = SOURCE_ROOT; };
+		293B4CD314563FFC005B71D8 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = SOURCE_ROOT; };
+		293B4CD414563FFC005B71D8 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = SOURCE_ROOT; };
+		293B4CD514563FFC005B71D8 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = SOURCE_ROOT; };
+		293B4CD614563FFC005B71D8 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = SOURCE_ROOT; };
+		293B4CD714563FFC005B71D8 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = SOURCE_ROOT; };
+		293B4CD814563FFC005B71D8 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = SOURCE_ROOT; };
+		293B4CD914563FFC005B71D8 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = SOURCE_ROOT; };
+		293B4CDA14563FFC005B71D8 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = SOURCE_ROOT; };
+		293B4CDB14563FFC005B71D8 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = SOURCE_ROOT; };
+		293B4CDC14563FFC005B71D8 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = SOURCE_ROOT; };
+		293B4CDD14563FFC005B71D8 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = SOURCE_ROOT; };
+		293B4CDE14563FFC005B71D8 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = SOURCE_ROOT; };
+		293B4CDF14563FFC005B71D8 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = SOURCE_ROOT; };
+		293B4CE014563FFC005B71D8 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = SOURCE_ROOT; };
+		293B4CE114563FFC005B71D8 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = SOURCE_ROOT; };
+		293B4CE214563FFC005B71D8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = SOURCE_ROOT; };
+		293B4CE314563FFC005B71D8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = SOURCE_ROOT; };
 		293D88BF11A84CC800157EB9 /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
 		293D88C111A84D2800157EB9 /* info-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-icon.png"; sourceTree = "<group>"; };
 		293E827711691D9E00816ABC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -134,19 +194,6 @@
 		2986ADCB119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = posestoreBookDetailsViewController.m; sourceTree = "<group>"; };
 		2986ADCC119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = posestoreBookDetailsViewController.xib; sourceTree = "<group>"; };
 		2986ADD8119DCE5300B5F1F1 /* polaroid-stack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "polaroid-stack.png"; sourceTree = "<group>"; };
-		2997E0B71180D2E000FA4B7E /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
-		2997E0B81180D2E000FA4B7E /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
-		2997E0B91180D2E000FA4B7E /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
-		2997E0BA1180D2E000FA4B7E /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
-		2997E0BB1180D2E000FA4B7E /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
-		2997E0BC1180D2E000FA4B7E /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
-		2997E0BD1180D2E000FA4B7E /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
-		2997E0BE1180D2E000FA4B7E /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
-		2997E0BF1180D2E000FA4B7E /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
-		2997E0C01180D2E000FA4B7E /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
-		2997E0C11180D2E000FA4B7E /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
-		2997E0C21180D2E000FA4B7E /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
-		2997E0C31180D2E000FA4B7E /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		2997E1D511811E6A00FA4B7E /* getSamplesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getSamplesViewController.h; sourceTree = "<group>"; };
 		2997E1D611811E6A00FA4B7E /* getSamplesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getSamplesViewController.m; sourceTree = "<group>"; };
 		2997E1D711811E6A00FA4B7E /* getSamplesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = getSamplesViewController.xib; sourceTree = "<group>"; };
@@ -159,16 +206,8 @@
 		29A5104311AC575B000DAE5E /* TestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImage.png; sourceTree = "<group>"; };
 		29B1C18A13CB5440007FA961 /* _EquipmentClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _EquipmentClass.h; sourceTree = "<group>"; };
 		29B1C18B13CB5440007FA961 /* _EquipmentClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _EquipmentClass.m; sourceTree = "<group>"; };
-		29B1C18C13CB5440007FA961 /* _poseBooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _poseBooks.h; sourceTree = "<group>"; };
-		29B1C18D13CB5440007FA961 /* _poseBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _poseBooks.m; sourceTree = "<group>"; };
-		29B1C18E13CB5440007FA961 /* _poseSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _poseSummary.h; sourceTree = "<group>"; };
-		29B1C18F13CB5440007FA961 /* _poseSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _poseSummary.m; sourceTree = "<group>"; };
 		29B1C19013CB5440007FA961 /* EquipmentClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipmentClass.h; sourceTree = "<group>"; };
 		29B1C19113CB5440007FA961 /* EquipmentClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipmentClass.m; sourceTree = "<group>"; };
-		29B1C19213CB5440007FA961 /* poseBooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseBooks.h; sourceTree = "<group>"; };
-		29B1C19313CB5440007FA961 /* poseBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseBooks.m; sourceTree = "<group>"; };
-		29B1C19413CB5440007FA961 /* poseSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = poseSummary.h; sourceTree = "<group>"; };
-		29B1C19513CB5440007FA961 /* poseSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = poseSummary.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29CD2525126378570044824E /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
 		29CD2526126378580044824E /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
@@ -183,8 +222,6 @@
 		29FDC5781176737300463E05 /* poseThumbnailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = poseThumbnailViewController.xib; sourceTree = "<group>"; };
 		29FDC7231177661600463E05 /* posepad2.0.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = posepad2.0.xcdatamodel; sourceTree = "<group>"; };
 		29FDC7A71177815E00463E05 /* posepad2.0.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = posepad2.0.xcmappingmodel; sourceTree = "<group>"; };
-		29FDC7CC11778B5900463E05 /* mainBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mainBookViewController.h; sourceTree = "<group>"; };
-		29FDC7CD11778B5900463E05 /* mainBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mainBookViewController.m; sourceTree = "<group>"; };
 		29FDC7D21177902200463E05 /* bookAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookAddViewController.h; sourceTree = "<group>"; };
 		29FDC7D31177902200463E05 /* bookAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookAddViewController.m; sourceTree = "<group>"; };
 		29FDC7D41177902200463E05 /* bookAddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bookAddViewController.xib; sourceTree = "<group>"; };
@@ -256,16 +293,24 @@
 				29662EAE11A851250078A1A3 /* settingsViewController.m */,
 				29662EAF11A851250078A1A3 /* settingsViewController.xib */,
 				29CD8A0F11A6D60500807CCD /* PoseStore */,
-				290595AA115BD82D00686C4D /* mainTableViewController.h */,
-				290595AB115BD82D00686C4D /* mainTableViewController.m */,
+				13EB788413CB8BEB001CDB39 /* tableDisplayController.h */,
+				13EB788513CB8BEB001CDB39 /* tableDisplayController.m */,
+				13EB788613CB8BEC001CDB39 /* tableDisplayController.xib */,
+				131AB05213DCC0A100F50AC8 /* poseBookThumbnailViewController.h */,
+				131AB05313DCC0A100F50AC8 /* poseBookThumbnailViewController.m */,
+				131AB05413DCC0A200F50AC8 /* poseBookThumbnailViewController.xib */,
 				290595AD115BD83A00686C4D /* detailViewController.h */,
 				290595AE115BD83A00686C4D /* detailViewController.m */,
-				290595AF115BD83A00686C4D /* detailViewController.xib */,
+				13EB78BD13D0DF24001CDB39 /* detailViewController.xib */,
+				13EB78B713D0DC88001CDB39 /* diagramViewController.h */,
+				13EB78B813D0DC88001CDB39 /* diagramViewController.m */,
+				13EB78B913D0DC88001CDB39 /* diagramViewController.xib */,
 				29FDC5761176737300463E05 /* poseThumbnailViewController.h */,
 				29FDC5771176737300463E05 /* poseThumbnailViewController.m */,
 				29FDC5781176737300463E05 /* poseThumbnailViewController.xib */,
-				29FDC7CC11778B5900463E05 /* mainBookViewController.h */,
-				29FDC7CD11778B5900463E05 /* mainBookViewController.m */,
+				134A2F5913E0C6CA0082C523 /* poseEditViewController.h */,
+				134A2F5A13E0C6CC0082C523 /* poseEditViewController.m */,
+				134A2F5B13E0C6CD0082C523 /* poseEditViewController.xib */,
 				29FDC7D21177902200463E05 /* bookAddViewController.h */,
 				29FDC7D31177902200463E05 /* bookAddViewController.m */,
 				29FDC7D41177902200463E05 /* bookAddViewController.xib */,
@@ -288,6 +333,39 @@
 			name = PurchaseManager;
 			sourceTree = "<group>";
 		};
+		293B4CA514563F0C005B71D8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				293B4CCB14563FFC005B71D8 /* NSObject+SBJson.h */,
+				293B4CCC14563FFC005B71D8 /* NSObject+SBJson.m */,
+				293B4CCD14563FFC005B71D8 /* SBJson.h */,
+				293B4CCE14563FFC005B71D8 /* SBJsonParser.h */,
+				293B4CCF14563FFC005B71D8 /* SBJsonParser.m */,
+				293B4CD014563FFC005B71D8 /* SBJsonStreamParser.h */,
+				293B4CD114563FFC005B71D8 /* SBJsonStreamParser.m */,
+				293B4CD214563FFC005B71D8 /* SBJsonStreamParserAccumulator.h */,
+				293B4CD314563FFC005B71D8 /* SBJsonStreamParserAccumulator.m */,
+				293B4CD414563FFC005B71D8 /* SBJsonStreamParserAdapter.h */,
+				293B4CD514563FFC005B71D8 /* SBJsonStreamParserAdapter.m */,
+				293B4CD614563FFC005B71D8 /* SBJsonStreamParserState.h */,
+				293B4CD714563FFC005B71D8 /* SBJsonStreamParserState.m */,
+				293B4CD814563FFC005B71D8 /* SBJsonStreamWriter.h */,
+				293B4CD914563FFC005B71D8 /* SBJsonStreamWriter.m */,
+				293B4CDA14563FFC005B71D8 /* SBJsonStreamWriterAccumulator.h */,
+				293B4CDB14563FFC005B71D8 /* SBJsonStreamWriterAccumulator.m */,
+				293B4CDC14563FFC005B71D8 /* SBJsonStreamWriterState.h */,
+				293B4CDD14563FFC005B71D8 /* SBJsonStreamWriterState.m */,
+				293B4CDE14563FFC005B71D8 /* SBJsonTokeniser.h */,
+				293B4CDF14563FFC005B71D8 /* SBJsonTokeniser.m */,
+				293B4CE014563FFC005B71D8 /* SBJsonUTF8Stream.h */,
+				293B4CE114563FFC005B71D8 /* SBJsonUTF8Stream.m */,
+				293B4CE214563FFC005B71D8 /* SBJsonWriter.h */,
+				293B4CE314563FFC005B71D8 /* SBJsonWriter.m */,
+			);
+			name = Classes;
+			path = "../../../../../../SourceCode/json-framework/Classes";
+			sourceTree = "<group>";
+		};
 		29442CD611B0460500CC1B97 /* Resize */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,19 +382,7 @@
 		2997E0B61180D2E000FA4B7E /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				2997E0B71180D2E000FA4B7E /* JSON.h */,
-				2997E0B81180D2E000FA4B7E /* NSObject+SBJSON.h */,
-				2997E0B91180D2E000FA4B7E /* NSObject+SBJSON.m */,
-				2997E0BA1180D2E000FA4B7E /* NSString+SBJSON.h */,
-				2997E0BB1180D2E000FA4B7E /* NSString+SBJSON.m */,
-				2997E0BC1180D2E000FA4B7E /* SBJSON.h */,
-				2997E0BD1180D2E000FA4B7E /* SBJSON.m */,
-				2997E0BE1180D2E000FA4B7E /* SBJsonBase.h */,
-				2997E0BF1180D2E000FA4B7E /* SBJsonBase.m */,
-				2997E0C01180D2E000FA4B7E /* SBJsonParser.h */,
-				2997E0C11180D2E000FA4B7E /* SBJsonParser.m */,
-				2997E0C21180D2E000FA4B7E /* SBJsonWriter.h */,
-				2997E0C31180D2E000FA4B7E /* SBJsonWriter.m */,
+				293B4CA514563F0C005B71D8 /* Classes */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -326,16 +392,12 @@
 			children = (
 				29B1C18A13CB5440007FA961 /* _EquipmentClass.h */,
 				29B1C18B13CB5440007FA961 /* _EquipmentClass.m */,
-				29B1C18C13CB5440007FA961 /* _poseBooks.h */,
-				29B1C18D13CB5440007FA961 /* _poseBooks.m */,
-				29B1C18E13CB5440007FA961 /* _poseSummary.h */,
-				29B1C18F13CB5440007FA961 /* _poseSummary.m */,
 				29B1C19013CB5440007FA961 /* EquipmentClass.h */,
 				29B1C19113CB5440007FA961 /* EquipmentClass.m */,
-				29B1C19213CB5440007FA961 /* poseBooks.h */,
-				29B1C19313CB5440007FA961 /* poseBooks.m */,
-				29B1C19413CB5440007FA961 /* poseSummary.h */,
-				29B1C19513CB5440007FA961 /* poseSummary.m */,
+				13D84B6413E6FD7D00A6F7E3 /* poseSummary.h */,
+				13D84B6513E6FD7D00A6F7E3 /* poseSummary.m */,
+				13D84B6813E6FE4B00A6F7E3 /* poseBooks.h */,
+				13D84B6913E6FE4B00A6F7E3 /* poseBooks.m */,
 			);
 			path = posepad;
 			sourceTree = "<group>";
@@ -364,6 +426,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1302C01313E6F2600050EB83 /* PoseBook Surround.png */,
+				1369FD9013DDF30600C01E62 /* NewPoseThumb.png */,
+				1369FD7A13DDE06100C01E62 /* Gray-Check.png */,
+				1369FD7B13DDE06100C01E62 /* Green-Check.png */,
+				13EB789C13CE1E33001CDB39 /* PosePad 2 Background.png */,
 				29F65CDE11DE7DB50000C2A8 /* Entitlements.plist */,
 				2986ADD8119DCE5300B5F1F1 /* polaroid-stack.png */,
 				290595B3115BDAC200686C4D /* ImageNotFound.png */,
@@ -443,8 +510,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "PosePad" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -468,7 +538,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
-				290595B1115BD83A00686C4D /* detailViewController.xib in Resources */,
 				290595B5115BDAC200686C4D /* ImageNotFound.png in Resources */,
 				296F0E9D115E50BB008D9FB9 /* Default.png in Resources */,
 				296F0EA1115E50CF008D9FB9 /* Icon.png in Resources */,
@@ -494,6 +563,16 @@
 				2982375F11AAFC470089E2CF /* paper-background-01.png in Resources */,
 				29A5104411AC575B000DAE5E /* TestImage.png in Resources */,
 				292911BB11C698AB004BAF61 /* PoseBookDownloadProgressView.xib in Resources */,
+				13EB788813CB8BEC001CDB39 /* tableDisplayController.xib in Resources */,
+				13EB789D13CE1E33001CDB39 /* PosePad 2 Background.png in Resources */,
+				13EB78BB13D0DC88001CDB39 /* diagramViewController.xib in Resources */,
+				13EB78BE13D0DF24001CDB39 /* detailViewController.xib in Resources */,
+				131AB05613DCC0A200F50AC8 /* poseBookThumbnailViewController.xib in Resources */,
+				1369FD7C13DDE06100C01E62 /* Gray-Check.png in Resources */,
+				1369FD7D13DDE06100C01E62 /* Green-Check.png in Resources */,
+				1369FD9113DDF30600C01E62 /* NewPoseThumb.png in Resources */,
+				134A2F5D13E0C6CE0082C523 /* poseEditViewController.xib in Resources */,
+				1302C01413E6F2600050EB83 /* PoseBook Surround.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,20 +587,12 @@
 				1D3623260D0F684500981E51 /* PoseBookAppDelegate.m in Sources */,
 				290595A7115BD81900686C4D /* pose.m in Sources */,
 				290595A8115BD81900686C4D /* poseList.m in Sources */,
-				290595AC115BD82D00686C4D /* mainTableViewController.m in Sources */,
 				290595B0115BD83A00686C4D /* detailViewController.m in Sources */,
 				29FDC7221177661500463E05 /* posepad.xcdatamodeld in Sources */,
 				29FDC5791176737300463E05 /* poseThumbnailViewController.m in Sources */,
 				29FDC7A81177815E00463E05 /* posepad2.0.xcmappingmodel in Sources */,
-				29FDC7CE11778B5900463E05 /* mainBookViewController.m in Sources */,
 				29FDC7D51177902200463E05 /* bookAddViewController.m in Sources */,
 				2931CEE3117CF2E300C60245 /* bookPickerViewController.m in Sources */,
-				2997E0C41180D2E000FA4B7E /* NSObject+SBJSON.m in Sources */,
-				2997E0C51180D2E000FA4B7E /* NSString+SBJSON.m in Sources */,
-				2997E0C61180D2E000FA4B7E /* SBJSON.m in Sources */,
-				2997E0C71180D2E000FA4B7E /* SBJsonBase.m in Sources */,
-				2997E0C81180D2E000FA4B7E /* SBJsonParser.m in Sources */,
-				2997E0C91180D2E000FA4B7E /* SBJsonWriter.m in Sources */,
 				2997E1D811811E6A00FA4B7E /* getSamplesViewController.m in Sources */,
 				2999F33A1199E15B00027E3D /* posestoreMainViewController.m in Sources */,
 				2986ADCD119DCC4E00B5F1F1 /* posestoreBookDetailsViewController.m in Sources */,
@@ -534,11 +605,25 @@
 				292911BA11C698AB004BAF61 /* PoseBookDownloadProgressView.m in Sources */,
 				29CD2527126378580044824E /* Appirater.m in Sources */,
 				29B1C19613CB5440007FA961 /* _EquipmentClass.m in Sources */,
-				29B1C19713CB5440007FA961 /* _poseBooks.m in Sources */,
-				29B1C19813CB5440007FA961 /* _poseSummary.m in Sources */,
 				29B1C19913CB5440007FA961 /* EquipmentClass.m in Sources */,
-				29B1C19A13CB5440007FA961 /* poseBooks.m in Sources */,
-				29B1C19B13CB5440007FA961 /* poseSummary.m in Sources */,
+				13EB788713CB8BEC001CDB39 /* tableDisplayController.m in Sources */,
+				13EB78BA13D0DC88001CDB39 /* diagramViewController.m in Sources */,
+				131AB05513DCC0A200F50AC8 /* poseBookThumbnailViewController.m in Sources */,
+				134A2F5C13E0C6CE0082C523 /* poseEditViewController.m in Sources */,
+				13D84B6613E6FD7D00A6F7E3 /* poseSummary.m in Sources */,
+				13D84B6A13E6FE4B00A6F7E3 /* poseBooks.m in Sources */,
+				293B4CE414563FFC005B71D8 /* NSObject+SBJson.m in Sources */,
+				293B4CE514563FFC005B71D8 /* SBJsonParser.m in Sources */,
+				293B4CE614563FFC005B71D8 /* SBJsonStreamParser.m in Sources */,
+				293B4CE714563FFC005B71D8 /* SBJsonStreamParserAccumulator.m in Sources */,
+				293B4CE814563FFC005B71D8 /* SBJsonStreamParserAdapter.m in Sources */,
+				293B4CE914563FFC005B71D8 /* SBJsonStreamParserState.m in Sources */,
+				293B4CEA14563FFC005B71D8 /* SBJsonStreamWriter.m in Sources */,
+				293B4CEB14563FFC005B71D8 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				293B4CEC14563FFC005B71D8 /* SBJsonStreamWriterState.m in Sources */,
+				293B4CED14563FFC005B71D8 /* SBJsonTokeniser.m in Sources */,
+				293B4CEE14563FFC005B71D8 /* SBJsonUTF8Stream.m in Sources */,
+				293B4CEF14563FFC005B71D8 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,11 +637,13 @@
 				ARCHS = armv7;
 				"ARCHS[sdk=iphoneos*]" = armv7;
 				"ARCHS[sdk=iphonesimulator*]" = i386;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PosePad_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PosePad-Info.plist";
 				PRODUCT_NAME = PosePad;
 			};
@@ -567,20 +654,21 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
-				CODE_SIGN_ENTITLEMENTS = "~/Documents/src/packages/PosePad/trunk/Entitlements.plist";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Shawn Grimes";
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shawn Grimes";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos3.2]" = "iPhone Distribution: Shawn Grimes";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PosePad_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PosePad-Info.plist";
 				PRODUCT_NAME = PosePad;
-				"PROVISIONING_PROFILE[sdk=*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
-				"PROVISIONING_PROFILE[sdk=iphoneos3.2]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B4D63B6-03F6-4551-AC5B-711D06C52CC0";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "";
+				VALID_ARCHS = "armv7 armv6";
 			};
 			name = Release;
 		};
@@ -597,7 +685,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -610,18 +697,19 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
-				CODE_SIGN_ENTITLEMENTS = "~/Documents/src/packages/PosePad/trunk/Entitlements.plist";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Shawn Grimes";
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					armv7,
+				);
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shawn Grimes";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos3.2]" = "iPhone Distribution: Shawn Grimes";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PosePad_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PosePad-Info.plist";
 				PRODUCT_NAME = PosePad;
-				"PROVISIONING_PROFILE[sdk=*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
-				"PROVISIONING_PROFILE[sdk=iphoneos3.2]" = "57B4A6D8-7B5D-4369-8C4E-9B728DFA69C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0B4D63B6-03F6-4551-AC5B-711D06C52CC0";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "";
 			};
@@ -638,7 +726,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -650,16 +737,15 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = armv7;
-				CODE_SIGN_ENTITLEMENTS = "~/Documents/src/packages/PosePad/trunk/Entitlements.plist";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos3.2]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = PosePad_Prefix.pch;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "PosePad-Info.plist";
 				PRODUCT_NAME = PosePad;
 				"PROVISIONING_PROFILE[sdk=*]" = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos3.2]" = "";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "";
 			};
@@ -676,7 +762,6 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				PREBINDING = NO;
 				PRODUCT_NAME = PosePad;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -696,7 +781,6 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "73BA905D-86C0-4158-9A3D-EB1FD7755DB8";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -741,9 +825,10 @@
 				2953C7EA12625D99004AC11F /* posepad 2.xcdatamodel */,
 				29CD264212638B900044824E /* posepad 3.xcdatamodel */,
 				29F439F712721C190085143B /* posepad 4.xcdatamodel */,
+				1302BFF713E5CD320050EB83 /* posepad 5.xcdatamodel */,
 			);
 			comments = xmod;
-			currentVersion = 29F439F712721C190085143B /* posepad 4.xcdatamodel */;
+			currentVersion = 1302BFF713E5CD320050EB83 /* posepad 5.xcdatamodel */;
 			path = posepad.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

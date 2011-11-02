@@ -102,8 +102,6 @@
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	if(self.fetchedResultsController == NULL){
 		
@@ -116,7 +114,6 @@
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) NSLog(@"Error Fetching: %@", [error localizedDescription]);	
 	NSLog(@"bookPickerVC:(fetchResults)Found %i books", [[fetchedResultsController fetchedObjects] count]);	
-	[request release];
 }
 
 /*
@@ -148,15 +145,6 @@
 }
 
 
-- (void)dealloc {
-	[savePoseButton release];
-	[selectBookLabel release];
-	[pickerView release];
-	[managedObjectContext release];
-	[fetchedResultsController release];
-	[selectedPose release];
-    [super dealloc];
-}
 
 
 @end

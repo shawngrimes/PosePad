@@ -17,6 +17,7 @@
 	IBOutlet UIButton *sendToFriendButton;
 	IBOutlet UIButton *seeTwitterButton;
 	IBOutlet UIButton *visitWebButton;
+	IBOutlet UISwitch *pinchMessageSwitch;
 
 }
 

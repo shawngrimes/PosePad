@@ -7,7 +7,8 @@
 //
 
 #import "posestoreBookDetailsViewController.h"
-#import "JSON.h"
+//#import "JSON.h"
+#import "SBJson.h"
 #import <SystemConfiguration/SCNetworkReachability.h>
 #include <netinet/in.h>
 #include <StoreKit/StoreKit.h>
@@ -110,15 +111,13 @@
 		//self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nConnected."];
 		NSLog(@"psBDTVC(getPoses):Connected");
 		//self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nFetching samples..."];
-		responseData = [[NSMutableData data] retain];
+		responseData = [NSMutableData data];
 		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 		NSLog(@"psBDTVC(getPoses): Getting poses from %@", urlString);
-		[connection release];
 	}else{
 		//self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nNo Connection Found."];
 		NSLog(@"psBDTVC(getPoses):No connection found.");
 	}
-	[request release];
 }
 
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
@@ -131,7 +130,6 @@
 	NSURLCredential *cred = [[NSURLCredential alloc] initWithUser:@"afjdkljfasdjklzcnmfuioouirqw" password:@"_pMy/+YcCHtG%ph" persistence:NSURLCredentialPersistencePermanent];
 	[[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
 	NSLog(@"Received Challenge");
-	[cred release];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -147,12 +145,11 @@
 	[self performSelectorInBackground:@selector(generateImageSlideShow:) withObject:poses];
 //	[self performSelector:@selector(generateImageSlideShow:) withObject:poses];
 //	[self performSelector:@selector(movePrevious) withObject:nil afterDelay:0];
-	[responseData release];
 }
 
 
 -(void) generateImageSlideShow:(NSArray *)poses {
-	id POOL = [[NSAutoreleasePool alloc] init];
+//	id POOL = [[NSAutoreleasePool alloc] init];
 	NSMutableArray *poseImages = [[NSMutableArray alloc] init];
 	for (NSDictionary *pose in poses){
 		NSLog(@"psBDTVC(generateImageSlideShow): Pose: %@", pose);
@@ -171,8 +168,6 @@
 //		[self setPolaroidImage:iconImg];
 	
 		//[iconImg release];
-		[tempImage release];
-		[imageData release];
 		//[poseDictionary setObject:pose forKey:[pose objectForKey:@"sortIndex"]];
 		NSLog(@"psBDTVC(connectionDidFinishLoading):ImagePath: %@", [pose objectForKey:@"imagePath"]);
 	}
@@ -183,28 +178,27 @@
 	
 	
 	
-	[poseImages release];
-	[POOL release];
+//	[POOL release];
 	[activityIndicator stopAnimating];
 	loadingImagesLabel.hidden=YES;
 	
 }
 
 -(void) setPolaroidImage:(UIImage *) poseImage{
-	id POOL = [[NSAutoreleasePool alloc] init];
+//	id POOL = [[NSAutoreleasePool alloc] init];
 	bookPhotoImageView.image=nil;
 	bookPhotoImageView.image=poseImage;
-	[POOL release];
+//	[POOL release];
 }
 	
 
 -(void) startImagesSlideShow:(NSArray *) poseImages{
-	id POOL = [[NSAutoreleasePool alloc] init];
+//	id POOL = [[NSAutoreleasePool alloc] init];
 	bookPhotoImageView.animationImages=poseImages;
 	bookPhotoImageView.animationDuration=[poseImages count]*3;
 	bookPhotoImageView.animationRepeatCount=0;
 	[bookPhotoImageView startAnimating];
-	[POOL release];
+//	[POOL release];
 	
 }
 
@@ -251,9 +245,6 @@
 
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

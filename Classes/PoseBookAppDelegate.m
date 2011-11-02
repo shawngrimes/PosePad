@@ -8,8 +8,8 @@
 
 #import "PoseBookAppDelegate.h"
 //#import "mainTableViewController.h"
-#import "mainBookViewController.h"
 #import "poseThumbnailViewController.h"
+#import "poseBookThumbnailViewController.h"
 #import "PoseBookDownloadProgressView.h"
 #import "poseList.h"
 #import "pose.h"
@@ -17,7 +17,8 @@
 #import "poseBooks.h"
 #import "InAppPurchaseManager.h"
 #import "UIImage+Resize.h"
-#import "JSON.h"
+//#import "JSON.h"
+#import "SBJson.h"
 #import <SystemConfiguration/SCNetworkReachability.h>
 #include <netinet/in.h>
 
@@ -39,6 +40,7 @@ NSArray *storeTransactions;
 - (void) applicationDidFinishLaunching:(UIApplication *)application{
 	
 	self.totalPoseList = [[poseList alloc] initWithSaveFile];
+    [self.window setBackgroundColor:[UIColor blackColor]];
 	NSManagedObjectContext *context = [self managedObjectContext];
 	if (!context) {
 		NSLog(@"No managed object context in appdidfinishlaunching");
@@ -51,18 +53,18 @@ NSArray *storeTransactions;
 		[self convertArraytoDatabase];
 	}
 	 */
-			NSLog(@"Finding Orphans");
-	[self findOrphans];
+	//		NSLog(@"Finding Orphans");
+	//[self findOrphans];
 			NSLog(@"Renaming image files");
 	[self renameOldVersions];
 
-	poseThumbnailViewController *thumbnailVC = [[poseThumbnailViewController alloc] initWithNibName:nil bundle:nil];
+	/*poseThumbnailViewController *thumbnailVC = [[poseThumbnailViewController alloc] initWithNibName:nil bundle:nil];
 	thumbnailVC.managedObjectContext = context;
 
 	NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
 	thumbnailVC.lastBookName = [prefs objectForKey:@"lastBookName"];
 	
-	NSLog(@"poseBookAppDelegate:(applicationDidFinishLaunching) Last used book was: %@", thumbnailVC.lastBookName);
+    NSLog(@"poseBookAppDelegate:(applicationDidFinishLaunching) Last used book was: %@", thumbnailVC.lastBookName);*/
 	
 	InAppPurchaseManager *observer=[[InAppPurchaseManager alloc] init];
 	observer.managedObjectContext = context;
@@ -71,8 +73,10 @@ NSArray *storeTransactions;
 
 	
 	navigationController = [[UINavigationController alloc] init];
+    navigationController.navigationBar.barStyle = UIBarStyleBlackOpaque;
 //Uncomment this when done testing store kit	
-	[navigationController pushViewController:thumbnailVC animated:NO];	
+    poseBookThumbnailViewController *pbtvc = [[poseBookThumbnailViewController alloc] initWithManagedObjectContext:self.managedObjectContext];
+	[navigationController pushViewController:pbtvc animated:NO];	
 	
 //Comment this when done testing storekit
 //	posestoreMainTableViewController *posestoreVC = [[posestoreMainTableViewController alloc] initWithNibName:nil bundle:nil];
@@ -81,9 +85,8 @@ NSArray *storeTransactions;
 	
 	
 	
-	[thumbnailVC release];
+	//[thumbnailVC release];
 	
-	[context release];
 	
 	[window addSubview:navigationController.view];
 	
@@ -92,7 +95,7 @@ NSArray *storeTransactions;
 	
 }
 
--(void) findOrphans{
+/*-(void) findOrphans{
 	NSFetchRequest *poserequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *poseentity = [NSEntityDescription entityForName:@"poseSummary" inManagedObjectContext:self.managedObjectContext];
 	NSPredicate *posepredicate = [NSPredicate predicateWithFormat:@"ANY books == NULL"];
@@ -169,7 +172,7 @@ NSArray *storeTransactions;
 	[posesortDescriptors release];
 	[posesortDescriptor release];
 }
-
+*/
 -(void) renameOldVersions{
 	NSFetchRequest *poserequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *poseentity = [NSEntityDescription entityForName:@"poseSummary" inManagedObjectContext:self.managedObjectContext];
@@ -232,10 +235,6 @@ NSArray *storeTransactions;
 	}
 	
 	
-	[poseFRC release];
-	[poserequest release];
-	[posesortDescriptors release];
-	[posesortDescriptor release];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application{ 
@@ -285,7 +284,7 @@ NSArray *storeTransactions;
                              [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption,
                              [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
 	NSError *error;
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: self.managedObjectModel];
     if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:options error:&error]) {
         NSLog(@"Unable to create persistent Store Coordinator: %@", [error localizedDescription]);
 		// Handle the error.
@@ -388,7 +387,6 @@ NSArray *storeTransactions;
 			
 			self.totalPoseList.poses = nil;
 			[self.totalPoseList saveToFileSystem];
-			[savedData release];
 			
 		}
 	}
@@ -397,15 +395,6 @@ NSArray *storeTransactions;
 							   
 
 
-- (void)dealloc {
-		[observer release];
-	[managedObjectContext release];
-    [persistentStoreCoordinator release];
-	[totalPoseList release];
-	[navigationController release];
-    [window release];
-    [super dealloc];
-}
 
 
 @end

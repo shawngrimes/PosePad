@@ -19,11 +19,11 @@
 	IBOutlet UIProgressView *progressView;
 	
 	NSManagedObjectContext *managedObjectContext;
-	poseBooks *newBookfromJSON;
+	poseBooks *bookfromJSON;
 	NSMutableData *responseData;
 	
 }
-@property (nonatomic, retain) poseBooks *newBookfromJSON;
+@property (nonatomic, retain) poseBooks *bookfromJSON;
 @property(nonatomic, retain) 	NSMutableData *responseData;
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;

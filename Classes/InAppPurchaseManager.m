@@ -11,7 +11,8 @@
 #import "poseSummary.h"
 #import "PoseBookDownloadProgressView.h"
 #import "UIImage+Resize.h"
-#import "JSON.h"
+//#import "JSON.h"
+#import "SBJson.h"
 #import <SystemConfiguration/SCNetworkReachability.h>
 #include <netinet/in.h>
 
@@ -20,14 +21,14 @@
 @implementation InAppPurchaseManager
 
 @synthesize managedObjectContext;
-@synthesize newBookfromJSON;
+@synthesize bookfromJSON;
 @synthesize window;
 
 NSArray *storeTransactions;
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
-	storeTransactions=[[NSArray arrayWithArray:transactions] retain];
+	storeTransactions=[NSArray arrayWithArray:transactions];
     for (SKPaymentTransaction *transaction in transactions)
     {
         switch (transaction.transactionState)
@@ -81,7 +82,7 @@ NSArray *storeTransactions;
 }
 
 -(void) getPoses: (SKPaymentTransaction *)transaction{
-	id POOL = [[NSAutoreleasePool alloc] init];
+//	id POOL = [[NSAutoreleasePool alloc] init];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	NSString *itunesID=transaction.payment.productIdentifier;
 	NSString *urlString=[@"https://www.posepad.com/posestore/buyPoses.php?itunesID=" stringByAppendingFormat:@"%@",itunesID];
@@ -93,16 +94,14 @@ NSArray *storeTransactions;
 		//self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nConnected."];
 		NSLog(@"psBDTVC(getPoses):Connected");
 		//self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nFetching samples..."];
-		responseData = [[NSMutableData data] retain];
+		responseData = [NSMutableData data];
 		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 		NSLog(@"psBDTVC(getPoses): Getting poses from %@", urlString);
-		[connection release];
 	}else{
 		//self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nNo Connection Found."];
 		NSLog(@"psBDTVC(getPoses):No connection found.");
 	}
-	[request release];
-	[POOL release];
+//	[POOL release];
 }
 
 -(void)closeTransaction:(NSString *) itunesID{
@@ -113,7 +112,6 @@ NSArray *storeTransactions;
 			[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
 		}
 	}
-	[storeTransactions release];
 
 }
 
@@ -126,7 +124,6 @@ NSArray *storeTransactions;
 	NSURLCredential *cred = [[NSURLCredential alloc] initWithUser:@"afjdkljfasdjklzcnmfuioouirqw" password:@"_pMy/+YcCHtG%ph" persistence:NSURLCredentialPersistencePermanent];
 	[[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
 	NSLog(@"Received Challenge");
-	[cred release];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -151,7 +148,7 @@ NSArray *storeTransactions;
 //	[window makeKeyAndVisible];
 	
 	
-	id POOL = [[NSAutoreleasePool alloc] init];
+//	id POOL = [[NSAutoreleasePool alloc] init];
 	NSLog(@"InAppPurchaseMgr(connectionDidFinishLoading): Downloading books...");
 	NSString *jsonString = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 	NSDictionary *results = [jsonString JSONValue];
@@ -204,7 +201,6 @@ NSArray *storeTransactions;
 			newPose.title =poseTitle;
 			NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 			newPose.sortIndex = [formatter numberFromString:[pose objectForKey:@"sortIndex"]];
-			[formatter release];
 			newPose.notes = [pose objectForKey:@"notes"];
 			
 			NSError *error;
@@ -233,16 +229,15 @@ NSArray *storeTransactions;
 			
 			[self getBookObject:poseBook];
 			
-			NSLog(@"InAppPurchaseMgr:(connectionDidFinish):Adding pose to book: %@", self.newBookfromJSON.name);
+			NSLog(@"InAppPurchaseMgr:(connectionDidFinish):Adding pose to book: %@", self.bookfromJSON.name);
 			
-			if(self.newBookfromJSON) {
-				[newPose addBooks:[NSSet setWithObject:self.newBookfromJSON]];
+			if(self.bookfromJSON) {
+				[newPose addBooks:[NSSet setWithObject:self.bookfromJSON]];
 			}
 			
 			if (![self.managedObjectContext save:&error]) NSLog(@"Error: %@", [error localizedDescription]);
 			tempImage=nil;
 			imageData=nil;
-			[tempImage release];
 			poseDownloadCount++;
 			//[imageData release];
 
@@ -254,10 +249,10 @@ NSArray *storeTransactions;
 	[self closeTransaction:[book objectForKey:@"itunesID"]];
 	//[pbdpV.view removeFromSuperview];
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-	UIAlertView *finishedLoadingAlert = [[UIAlertView alloc] initWithTitle:@"New Pose Book Downloaded" message:[NSString stringWithFormat:@"Your new pose book(%@) has been downloaded", self.newBookfromJSON.name] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	UIAlertView *finishedLoadingAlert = [[UIAlertView alloc] initWithTitle:@"New Pose Book Downloaded" message:[NSString stringWithFormat:@"Your new pose book(%@) has been downloaded", self.bookfromJSON.name] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 	[finishedLoadingAlert show];
 	responseData=nil;
-	[POOL release];
+//	[POOL release];
 }
 
 - (BOOL) connectedToNetwork
@@ -299,8 +294,6 @@ NSArray *storeTransactions;
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[checkBookNamerequest setSortDescriptors:sortDescriptors];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	NSFetchedResultsController *bookCheckFRC = [[NSFetchedResultsController alloc] initWithFetchRequest:checkBookNamerequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 	
@@ -309,13 +302,9 @@ NSArray *storeTransactions;
 	NSLog(@"getSampleVC:(checkBookName)Found %i books", [[bookCheckFRC fetchedObjects] count]);
 	if([[bookCheckFRC fetchedObjects] count] > 0){
 		poseBooks *chosenBook=[[bookCheckFRC fetchedObjects] objectAtIndex:0];
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
-		self.newBookfromJSON=chosenBook;
+		self.bookfromJSON=chosenBook;
 	}else{
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
-		self.newBookfromJSON=nil;
+		self.bookfromJSON=nil;
 	}
 }
 
@@ -346,8 +335,6 @@ NSArray *storeTransactions;
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[checkBookNamerequest setSortDescriptors:sortDescriptors];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	NSFetchedResultsController *bookCheckFRC = [[NSFetchedResultsController alloc] initWithFetchRequest:checkBookNamerequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 	
@@ -355,12 +342,8 @@ NSArray *storeTransactions;
 	if (![bookCheckFRC performFetch:&error]) NSLog(@"Error Fetching: %@", [error localizedDescription]);	
 	NSLog(@"getSampleVC:(checkBookName)Found %i books", [[bookCheckFRC fetchedObjects] count]);
 	if([[bookCheckFRC fetchedObjects] count] > 0){
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
 		return YES;
 	}else{
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
 		return NO;
 	}
 	
@@ -378,8 +361,6 @@ NSArray *storeTransactions;
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sortIndex" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[checkBookNamerequest setSortDescriptors:sortDescriptors];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	NSFetchedResultsController *bookCheckFRC = [[NSFetchedResultsController alloc] initWithFetchRequest:checkBookNamerequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 	
@@ -387,12 +368,8 @@ NSArray *storeTransactions;
 	if (![bookCheckFRC performFetch:&error]) NSLog(@"Error Fetching: %@", [error localizedDescription]);	
 	NSLog(@"getSampleVC:(checkBookName)Found %i books", [[bookCheckFRC fetchedObjects] count]);
 	if([[bookCheckFRC fetchedObjects] count] > 0){
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
 		return YES;
 	}else{
-		[bookCheckFRC release];
-		[checkBookNamerequest release];
 		return NO;
 	}
 }

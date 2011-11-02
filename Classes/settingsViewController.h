@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "poseBooks.h"
 
 @protocol settingsViewControllerDelegate <NSObject>
 -(void)externalDisplayEnabled:(UIWindow *) extWindowSetting;
@@ -30,7 +31,9 @@
 @property(nonatomic,retain) id<settingsViewControllerDelegate> delegate;
 @property(nonatomic,retain) UIWindow *extWindow;
 @property (nonatomic, retain) 	NSMutableArray *displayModesArray;
+@property (nonatomic, retain) poseBooks *book;
 
+-(id)initWithPosebook:(poseBooks *)poseBook;
 -(IBAction) saveSettings:(id) sender;
 -(IBAction) changeSort:(id) sender;
 -(IBAction) changePinchMessage:(id) sender;

@@ -7,7 +7,8 @@
 //
 
 #import "posestoreMainViewController.h"
-#import "JSON.h"
+//#import "JSON.h"
+#import "SBJson.h"
 #import <SystemConfiguration/SCNetworkReachability.h>
 #include <netinet/in.h>
 #import "posestoreBookDetailsViewController.h"
@@ -48,7 +49,6 @@
 	getSamplesVC.managedObjectContext = managedObjectContext;
 	
 	[self presentModalViewController:getSamplesVC animated:YES];
-	[getSamplesVC release]; 
 	
 }
 
@@ -82,7 +82,6 @@
 	self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nYou are ready to shop!"];
 	
     // populate UI
-    [request autorelease];
 	
 	[activityIndicator stopAnimating];
 }
@@ -104,15 +103,13 @@
 		self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nConnected."];
 		NSLog(@"psMTVC(getAvailablePoseBooks):Connected");
 		self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nFetching samples..."];
-		responseData = [[NSMutableData data] retain];
+		responseData = [NSMutableData data];
 		NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-		[connection release];
 	}else{
 		self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nNo Connection Found."];
 		NSLog(@"psMTVC(getAvailablePoseBooks):No connection found.");
 		[activityIndicator stopAnimating];
 	}
-	[request release];
 }
 
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
@@ -125,7 +122,6 @@
 	NSURLCredential *cred = [[NSURLCredential alloc] initWithUser:@"afjdkljfasdjklzcnmfuioouirqw" password:@"_pMy/+YcCHtG%ph" persistence:NSURLCredentialPersistencePermanent];
 	[[challenge sender] useCredential:cred forAuthenticationChallenge:challenge];
 	NSLog(@"Received Challenge");
-	[cred release];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -158,8 +154,6 @@
 	NSLog(@"bookIDs count: %i", [bookDictionary count]);
 	self.statusMessageLabel.text = [self.statusMessageLabel.text stringByAppendingString:@"\nGetitng information from App Store..."];
 	[self requestProductDataFromAppStore];
-	[responseData release];
-	[jsonString release];
 }
 
 
@@ -315,7 +309,6 @@
 	NSLog(@"posestoreMVC(didSelectRowAtIndexPath): Selected posebook= %@", [keys objectAtIndex:indexPath.row]);
 	posestoreDetailVC.bookInformation = [bookDictionary objectForKey:[keys objectAtIndex:indexPath.row]];
 	[self.navigationController pushViewController:posestoreDetailVC animated:YES];
-	[posestoreDetailVC release];
 }
 
 
@@ -335,10 +328,6 @@
 }
 
 
-- (void)dealloc {
-	[bookDictionary release];
-    [super dealloc];
-}
 
 
 @end

@@ -27,7 +27,13 @@
     [super viewDidLoad];
 }
 */
-
+-(IBAction) changePinchMessage:(id) sender{
+	NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+	//NSLog(@"settingsVC(changePinchMessage): Display pinchMessage: %d", pinchMessageSwitch.on);
+	[prefs setBool:pinchMessageSwitch.on forKey:@"displayPinchMessage"];
+	[prefs synchronize];
+	
+}
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
 	[self becomeFirstResponder];
 	[self dismissModalViewControllerAnimated:YES];
@@ -47,7 +53,6 @@
 	mailVC.modalPresentationStyle=UIModalPresentationFormSheet;
 	//	mailVC.modalTransitionStyle=UIModalTransitionStylePartialCurl;	
 	[self presentModalViewController:mailVC animated:YES];
-	[mailVC release];
 }
 
 -(IBAction) requestFeatureCommand{
@@ -58,7 +63,6 @@
 	mailVC.modalPresentationStyle=UIModalPresentationFormSheet;
 	//	mailVC.modalTransitionStyle=UIModalTransitionStylePartialCurl;	
 	[self presentModalViewController:mailVC animated:YES];
-	[mailVC release];
 	
 }
 
@@ -71,11 +75,10 @@
 	mailVC.modalPresentationStyle=UIModalPresentationFormSheet;
 	//	mailVC.modalTransitionStyle=UIModalTransitionStylePartialCurl;	
 	[self presentModalViewController:mailVC animated:YES];
-	[mailVC release];
 }
 
 -(IBAction) seeTwitterCommand{
-	NSURL *url = [NSURL URLWithString:@"http://www.twitter.com/posepad"];
+	NSURL *url = [NSURL URLWithString:@"http://www.twitter.com/shawnsbits"];
 	[[UIApplication sharedApplication] openURL:url];
 }
 -(IBAction) visitWebCommand{
@@ -97,7 +100,13 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+    [pinchMessageSwitch setOn:[prefs boolForKey:@"displayPinchMessage"] animated:NO];
 
+}
 - (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
@@ -105,9 +114,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

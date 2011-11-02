@@ -19,11 +19,11 @@
 
 @interface InAppPurchaseManager : UIViewController <SKPaymentTransactionObserver>{
 	NSManagedObjectContext *managedObjectContext;
-	poseBooks *newBookfromJSON;
+	poseBooks *bookfromJSON;
 	NSMutableData *responseData;
 	UIWindow *window;
 }
-@property (nonatomic, retain) poseBooks *newBookfromJSON;
+@property (nonatomic, retain) poseBooks *bookfromJSON;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
