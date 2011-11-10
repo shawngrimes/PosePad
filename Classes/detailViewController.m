@@ -417,7 +417,7 @@
 
 }
 
--(IBAction) bookPickerShow:(id) sender {
+-(void) bookPickerShow {
 	bookPickerViewController *bookPickVC = [[bookPickerViewController alloc] initWithNibName:@"bookPickerViewController" bundle:nil];
 	bookPickVC.delegate = self;
 	bookPickVC.managedObjectContext = self.managedObjectContext;
@@ -629,6 +629,7 @@
     self.notesTextView.layer.cornerRadius = 25.0;
     self.notesTextView.backgroundColor = [[UIColor alloc] initWithRed:0.9 green:0.9 blue:0.9 alpha:0.6];
     self.notesTextView.textColor = [UIColor darkTextColor];
+    [self.view bringSubviewToFront:self.notesTextView];
     [self.view addSubview:self.poseScrollView];
 }
 
@@ -751,7 +752,9 @@
 			[UIView setAnimationDuration:.8];	
 			[UIView	setAnimationDidStopSelector:@selector(sendTextViewToBack:)];
 			
-			textView.frame = CGRectMake(14,628,740,264);
+            self.notesTextView.frame = CGRectMake(10,550,750,270);
+            
+//			textView.frame = CGRectMake(14,628,740,264);
 			[UIView commitAnimations];
 
 		}
@@ -883,6 +886,9 @@
         editVC.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentModalViewController:editVC animated:YES];
     }
+    else if (buttonIndex == 2){
+        [self bookPickerShow];
+    }
     menuIsVisible = NO;
 }
 //-(void)
@@ -890,10 +896,10 @@
 {
         if (!menuIsVisible)
         {
-            self.menu = [[UIActionSheet alloc] initWithTitle:@"Pose Menu" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"Delete Pose" otherButtonTitles:@"Edit Pose Name", nil];
+            self.menu = [[UIActionSheet alloc] initWithTitle:@"Pose Menu" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"Delete Pose" otherButtonTitles:@"Edit Pose Name",@"Move Pose To New Book", nil];
             self.menu.actionSheetStyle = UIActionSheetStyleBlackOpaque;
             [self.menu showFromBarButtonItem:sender animated:YES];
-            self.menu;
+//            self.menu;
             menuIsVisible = YES;
         }
         else

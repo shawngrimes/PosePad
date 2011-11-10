@@ -545,7 +545,10 @@ detailViewController *dvc;
 
 
 -(void)bookWasAdded{}
--(void)bookWasCanceled{}
+-(void)bookWasCanceled
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 
 @end
 

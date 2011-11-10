@@ -140,7 +140,9 @@
 -(IBAction)sliderChange:(id)sender;
 
 -(IBAction) checkButtonPressed:(id)sender;
-	
+
+-(void) bookPickerShow;
+
 -(void)sendTextViewToBack;
 -(void) hidePinchMessage;
 -(void) populateExternalView;
